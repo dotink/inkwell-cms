@@ -14,22 +14,22 @@
 	);
 
 	if (!($app = @include($init_path . DIRECTORY_SEPARATOR . 'init.php'))) {
-	    echo 'Cannot find application instance';
-	    exit(-1);
+		echo 'Cannot find application instance';
+		exit(-1);
 	}
 
 	//
 	// We've got an application instance so let's run!
 	//
 
-	$app->run(function($app) {
+	$app->run(function() {
 		$cmd = sprintf(
 			'%s -c %s/.user.ini -S %s:%s -t %s',
-			$app['engine']->fetch('core',   'php',     'php'),
-			$app['engine']->fetch('core',   'docroot', 'public'),
-			$app['engine']->fetch('server', 'host',    'localhost'),
-			$app['engine']->fetch('server', 'port',    '8080'),
-			$app['engine']->fetch('core',   'docroot', 'public')
+			$this->fetch('core',   'php',     'php'),
+			$this->fetch('core',   'docroot', 'public'),
+			$this->fetch('server', 'host',    'localhost'),
+			$this->fetch('server', 'port',    '8080'),
+			$this->fetch('core',   'docroot', 'public')
 		);
 
 		passthru($cmd, $return);
