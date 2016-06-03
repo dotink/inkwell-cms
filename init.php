@@ -42,7 +42,7 @@
 	$error_target  = getenv('ERROR_TARGET');
 	$debug_manager = new Whoops\Run;
 
-	if ($error_target != IW\ERROR\TARGET_NULL) {
+	if ($error_target && $error_target != IW\ERROR\TARGET_NULL) {
 		switch ($error_target) {
 			case IW\ERROR\TARGET_RESPONSE:
 				$debug_manager->pushHandler(new PlainTextHandler());
@@ -92,8 +92,8 @@
 
 	$broker->share($app);
 
+	$action_dir    = $app->getDirectory($app->getEnvironment('IW_ACTION_ROOT', 'boot'));
 	$config_dir    = $app->getDirectory($app->getEnvironment('IW_CONFIG_ROOT', 'config'));
-	$action_dir    = $app->getDirectory($app->getEnvironment('IW_ACTION_ROOT', 'include'));
 	$environment   = $app->getEnvironment('IW_ENVIRONMENT', 'prod');
 
 	$app['broker'] = $broker;
