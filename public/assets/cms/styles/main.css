@@ -1,0 +1,136 @@
+html,
+body {
+	height: 100%;
+	font-family: sans-serif;
+}
+
+nav {
+	background-color: #333;
+	color: #eee;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+	color: inherit;
+	text-decoration: none !important;
+}
+
+a[class^=button-] {
+	color: #fff;
+}
+
+nav a {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+nav ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	height: 100%;
+}
+
+nav li {
+	display: inline-block;
+	height: calc(32px + 1em + 2.5rem);
+	text-align: center;
+	padding: 1rem;
+	margin: 0;
+}
+
+nav.modules {
+	background-color: #2d477b;
+	padding: .5rem 0 !important;
+}
+
+nav.tools,
+[role=main] {
+	height: calc(100% - 32px - 1em - 3.5rem);
+}
+
+nav.tools {
+	padding: 0 !important;
+}
+
+nav.tools li {
+	width: 100%;
+}
+
+nav.tools li[data-active] {
+	background-color: #fff;
+	color: #222;
+}
+
+li .icon:before {
+	display: block;
+	font-size: 32px;
+	margin-bottom: .5rem;
+}
+
+.logo {
+	background-image: url('/assets/cms/images/logo.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 88px;
+	text-indent: -500px;
+	overflow: hidden;
+}
+
+.content .icon:before {
+	content: '\e923';
+}
+
+.pages .icon:before {
+	content: '\e925';
+}
+
+.partials .icon:before {
+	content: '\ea72';
+}
+
+.layouts .icon:before {
+	content: '\e94c';
+}
+
+.blocks .icon:before {
+	content: '\ea58';
+}
+
+.entities .icon:before {
+	content: '\e976';
+}
+
+.people .icon:before {
+	content: '\e972';
+}
+
+.organizations .icon:before {
+	content: '\e903';
+}
+
+[role=main] {
+	overflow-y: auto;
+	position: relative;
+}
+
+form .actions {
+	background-color: rgba(255,255,255,.90);
+	padding: 1rem 0;
+	margin-bottom: 1rem;
+	position: sticky;
+	top: 0;
+}
+
+a[class^="icon"]:before,
+a[class*=" icon"]:before,
+span[class^="icon"]:before,
+span[class*=" icon"]:before {
+	margin-right: .5rem;
+	margin-left: .5rem;
+}

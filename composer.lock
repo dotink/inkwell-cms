@@ -1,0 +1,2513 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "879c1bf85e52b4db67a756fe79d583e4",
+    "content-hash": "4cbfe736daedb237736c87697e3cc1ef",
+    "packages": [
+        {
+            "name": "dnoegel/php-xdg-base-dir",
+            "version": "0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dnoegel/php-xdg-base-dir.git",
+                "reference": "265b8593498b997dc2d31e75b89f053b5cc9621a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dnoegel/php-xdg-base-dir/zipball/265b8593498b997dc2d31e75b89f053b5cc9621a",
+                "reference": "265b8593498b997dc2d31e75b89f053b5cc9621a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "@stable"
+            },
+            "type": "project",
+            "autoload": {
+                "psr-4": {
+                    "XdgBaseDir\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "implementation of xdg base directory specification for php",
+            "time": "2014-10-24 07:27:01"
+        },
+        {
+            "name": "doctrine/annotations",
+            "version": "v1.2.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/annotations.git",
+                "reference": "f25c8aab83e0c3e976fd7d19875f198ccf2f7535"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/f25c8aab83e0c3e976fd7d19875f198ccf2f7535",
+                "reference": "f25c8aab83e0c3e976fd7d19875f198ccf2f7535",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/lexer": "1.*",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "doctrine/cache": "1.*",
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\Common\\Annotations\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "Docblock Annotations Parser",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "annotations",
+                "docblock",
+                "parser"
+            ],
+            "time": "2015-08-31 12:32:49"
+        },
+        {
+            "name": "doctrine/cache",
+            "version": "v1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/cache.git",
+                "reference": "f8af318d14bdb0eff0336795b428b547bd39ccb6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/f8af318d14bdb0eff0336795b428b547bd39ccb6",
+                "reference": "f8af318d14bdb0eff0336795b428b547bd39ccb6",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~5.5|~7.0"
+            },
+            "conflict": {
+                "doctrine/common": ">2.2,<2.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8|~5.0",
+                "predis/predis": "~1.0",
+                "satooshi/php-coveralls": "~0.6"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.6.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Common\\Cache\\": "lib/Doctrine/Common/Cache"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "Caching library offering an object-oriented API for many cache backends",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "cache",
+                "caching"
+            ],
+            "time": "2015-12-31 16:37:02"
+        },
+        {
+            "name": "doctrine/collections",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/collections.git",
+                "reference": "6c1e4eef75f310ea1b3e30945e9f06e652128b8a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/collections/zipball/6c1e4eef75f310ea1b3e30945e9f06e652128b8a",
+                "reference": "6c1e4eef75f310ea1b3e30945e9f06e652128b8a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\Common\\Collections\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "Collections Abstraction library",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "array",
+                "collections",
+                "iterator"
+            ],
+            "time": "2015-04-14 22:21:58"
+        },
+        {
+            "name": "doctrine/common",
+            "version": "v2.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/common.git",
+                "reference": "a579557bc689580c19fee4e27487a67fe60defc0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/common/zipball/a579557bc689580c19fee4e27487a67fe60defc0",
+                "reference": "a579557bc689580c19fee4e27487a67fe60defc0",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/annotations": "1.*",
+                "doctrine/cache": "1.*",
+                "doctrine/collections": "1.*",
+                "doctrine/inflector": "1.*",
+                "doctrine/lexer": "1.*",
+                "php": "~5.5|~7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8|~5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.7.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Common\\": "lib/Doctrine/Common"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "Common Library for Doctrine projects",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "annotations",
+                "collections",
+                "eventmanager",
+                "persistence",
+                "spl"
+            ],
+            "time": "2015-12-25 13:18:31"
+        },
+        {
+            "name": "doctrine/dbal",
+            "version": "v2.5.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/dbal.git",
+                "reference": "abbdfd1cff43a7b99d027af3be709bc8fc7d4769"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/abbdfd1cff43a7b99d027af3be709bc8fc7d4769",
+                "reference": "abbdfd1cff43a7b99d027af3be709bc8fc7d4769",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/common": ">=2.4,<2.7-dev",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*",
+                "symfony/console": "2.*"
+            },
+            "suggest": {
+                "symfony/console": "For helpful console commands such as SQL execution and import of files."
+            },
+            "bin": [
+                "bin/doctrine-dbal"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\DBAL\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                }
+            ],
+            "description": "Database Abstraction Layer",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "database",
+                "dbal",
+                "persistence",
+                "queryobject"
+            ],
+            "time": "2016-01-05 22:11:12"
+        },
+        {
+            "name": "doctrine/inflector",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/inflector.git",
+                "reference": "90b2128806bfde671b6952ab8bea493942c1fdae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/90b2128806bfde671b6952ab8bea493942c1fdae",
+                "reference": "90b2128806bfde671b6952ab8bea493942c1fdae",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\Common\\Inflector\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "Common String Manipulations with regard to casing and singular/plural rules.",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "inflection",
+                "pluralize",
+                "singularize",
+                "string"
+            ],
+            "time": "2015-11-06 14:35:42"
+        },
+        {
+            "name": "doctrine/instantiator",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/instantiator.git",
+                "reference": "8e884e78f9f0eb1329e445619e04456e64d8051d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/8e884e78f9f0eb1329e445619e04456e64d8051d",
+                "reference": "8e884e78f9f0eb1329e445619e04456e64d8051d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3,<8.0-DEV"
+            },
+            "require-dev": {
+                "athletic/athletic": "~0.1.8",
+                "ext-pdo": "*",
+                "ext-phar": "*",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Instantiator\\": "src/Doctrine/Instantiator/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marco Pivetta",
+                    "email": "ocramius@gmail.com",
+                    "homepage": "http://ocramius.github.com/"
+                }
+            ],
+            "description": "A small, lightweight utility to instantiate objects in PHP without invoking their constructors",
+            "homepage": "https://github.com/doctrine/instantiator",
+            "keywords": [
+                "constructor",
+                "instantiate"
+            ],
+            "time": "2015-06-14 21:17:01"
+        },
+        {
+            "name": "doctrine/lexer",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/lexer.git",
+                "reference": "83893c552fd2045dd78aef794c31e694c37c0b8c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/lexer/zipball/83893c552fd2045dd78aef794c31e694c37c0b8c",
+                "reference": "83893c552fd2045dd78aef794c31e694c37c0b8c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\Common\\Lexer\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "Base library for a lexer that can be used in Top-Down, Recursive Descent Parsers.",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "lexer",
+                "parser"
+            ],
+            "time": "2014-09-09 13:34:57"
+        },
+        {
+            "name": "doctrine/orm",
+            "version": "v2.5.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/doctrine2.git",
+                "reference": "bc4ddbfb0114cb33438cc811c9a740d8aa304aab"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/bc4ddbfb0114cb33438cc811c9a740d8aa304aab",
+                "reference": "bc4ddbfb0114cb33438cc811c9a740d8aa304aab",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/cache": "~1.4",
+                "doctrine/collections": "~1.2",
+                "doctrine/common": ">=2.5-dev,<2.7-dev",
+                "doctrine/dbal": ">=2.5-dev,<2.6-dev",
+                "doctrine/instantiator": "~1.0.1",
+                "ext-pdo": "*",
+                "php": ">=5.4",
+                "symfony/console": "~2.5|~3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "symfony/yaml": "~2.3|~3.0"
+            },
+            "suggest": {
+                "symfony/yaml": "If you want to use YAML Metadata Mapping Driver"
+            },
+            "bin": [
+                "bin/doctrine",
+                "bin/doctrine.php"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\ORM\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                }
+            ],
+            "description": "Object-Relational-Mapper for PHP",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "database",
+                "orm"
+            ],
+            "time": "2016-01-05 21:34:58"
+        },
+        {
+            "name": "dotink/affinity",
+            "version": "1.2.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:dotink/affinity.git",
+                "reference": "f9d61ac2c4868292a4dd41de9f45adc2dff44f98"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dotink/affinity/zipball/f9d61ac2c4868292a4dd41de9f45adc2dff44f98",
+                "reference": "f9d61ac2c4868292a4dd41de9f45adc2dff44f98",
+                "shasum": ""
+            },
+            "require": {
+                "dotink/flourish-core": "^1.0.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "license": [
+                "AGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Matthew J. Sahagian",
+                    "email": "msahagian@dotink.org",
+                    "role": "Lead Architect / Developer"
+                }
+            ],
+            "description": "A bootstrapper that loves you",
+            "keywords": [
+                "bootstrap"
+            ],
+            "time": "2016-03-31 19:30:47"
+        },
+        {
+            "name": "dotink/flourish-collection",
+            "version": "1.1.6",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:dotink/flourish-collection.git",
+                "reference": "cdb9028df24a62f0ea19d42fe6cff8b1e67f6c76"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dotink/flourish-collection/zipball/cdb9028df24a62f0ea19d42fe6cff8b1e67f6c76",
+                "reference": "cdb9028df24a62f0ea19d42fe6cff8b1e67f6c76",
+                "shasum": ""
+            },
+            "require": {
+                "dotink/flourish-core": "^1.0.0",
+                "imarc/opus": "^1.0.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "dotink/lab": "^1.1.0"
+            },
+            "type": "opus-package",
+            "extra": {
+                "opus": {
+                    "dotink/inkwell-2.0": {
+                        "src": "library/flourish"
+                    }
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "license": [
+                "AGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Matthew J. Sahagian",
+                    "email": "msahagian@dotink.org",
+                    "role": "Lead Architect / Developer"
+                },
+                {
+                    "name": "Brian Tam",
+                    "email": "btam06@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A rudimentary collection class",
+            "keywords": [
+                "iterator"
+            ],
+            "time": "2015-05-07 06:18:59"
+        },
+        {
+            "name": "dotink/flourish-core",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:dotink/flourish-core.git",
+                "reference": "b915fe611a5217edfdf3ca99b4dc881d7f1e494b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dotink/flourish-core/zipball/b915fe611a5217edfdf3ca99b4dc881d7f1e494b",
+                "reference": "b915fe611a5217edfdf3ca99b4dc881d7f1e494b",
+                "shasum": ""
+            },
+            "require": {
+                "imarc/opus": "^1.0.0",
+                "php": ">=5.4.0"
+            },
+            "type": "opus-package",
+            "extra": {
+                "opus": {
+                    "dotink/inkwell-2.0": {
+                        "src": "library/flourish"
+                    }
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "license": [
+                "AGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Matthew J. Sahagian",
+                    "email": "msahagian@dotink.org",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Useful debugging, error/exception handling, and normalization classes",
+            "keywords": [
+                "debugging",
+                "error handling",
+                "exception handling"
+            ],
+            "time": "2015-04-22 06:09:18"
+        },
+        {
+            "name": "dotink/flourish-url",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:dotink/flourish-url.git",
+                "reference": "7d29fb92f8e49b5e04b2e64ef258cfac8d69766a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dotink/flourish-url/zipball/7d29fb92f8e49b5e04b2e64ef258cfac8d69766a",
+                "reference": "7d29fb92f8e49b5e04b2e64ef258cfac8d69766a",
+                "shasum": ""
+            },
+            "require": {
+                "dotink/flourish-core": "^1.0.0",
+                "imarc/opus": "^1.0.0",
+                "php": ">=5.4.0"
+            },
+            "type": "opus-package",
+            "extra": {
+                "opus": {
+                    "dotink/inkwell-2.0": {
+                        "src": "library/flourish"
+                    }
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "license": [
+                "AGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Will Bond",
+                    "email": "will@wbond.net",
+                    "role": "Original Author"
+                },
+                {
+                    "name": "Matthew J. Sahagian",
+                    "email": "msahagian@dotink.org",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A URL parser and manipulation class",
+            "keywords": [
+                "URL"
+            ],
+            "time": "2015-10-31 07:19:01"
+        },
+        {
+            "name": "dotink/inkwell-components",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:dotink/inkwell-components.git",
+                "reference": "ae7b845fe16ee9489c7625f2b5485151869a4cc7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dotink/inkwell-components/zipball/ae7b845fe16ee9489c7625f2b5485151869a4cc7",
+                "reference": "ae7b845fe16ee9489c7625f2b5485151869a4cc7",
+                "shasum": ""
+            },
+            "require": {
+                "dotink/inkwell-console": "^1.0.0",
+                "dotink/inkwell-controller": "^1.0.0",
+                "dotink/inkwell-html": "^1.0.0",
+                "dotink/inkwell-routing": "^1.0.0",
+                "dotink/inkwell-view": "^1.0.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "license": [
+                "AGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Matthew J. Sahagian",
+                    "email": "msahagian@dotink.org",
+                    "role": "Lead Architect / Developer"
+                }
+            ],
+            "description": "Meta Package for inKWell Components",
+            "keywords": [
+                "components"
+            ],
+            "time": "2016-06-03 06:02:14"
+        },
+        {
+            "name": "dotink/inkwell-console",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:dotink/inkwell-console.git",
+                "reference": "0bcca1d908166ef78767a79644d6be89dbf5a8d5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dotink/inkwell-console/zipball/0bcca1d908166ef78767a79644d6be89dbf5a8d5",
+                "reference": "0bcca1d908166ef78767a79644d6be89dbf5a8d5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "psy/psysh": "^0.7.0"
+            },
+            "require-dev": {
+                "dotink/lab": "^1.1.0"
+            },
+            "type": "opus-package",
+            "extra": {
+                "opus": {
+                    "inkwell/framework": {
+                        "plugin/bin": "bin",
+                        "plugin/config": "config"
+                    }
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "license": [
+                "AGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Matthew J. Sahagian",
+                    "email": "msahagian@dotink.org",
+                    "role": "Lead Architect / Developer"
+                }
+            ],
+            "description": "Interactive Console for inKWell",
+            "keywords": [
+                "cli",
+                "repl"
+            ],
+            "time": "2016-06-03 05:37:39"
+        },
+        {
+            "name": "dotink/inkwell-controller",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:dotink/inkwell-controller.git",
+                "reference": "c7d843cc42b544650cc31be39865c548245deef2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dotink/inkwell-controller/zipball/c7d843cc42b544650cc31be39865c548245deef2",
+                "reference": "c7d843cc42b544650cc31be39865c548245deef2",
+                "shasum": ""
+            },
+            "require": {
+                "dotink/flourish-core": "^1.0.0",
+                "imarc/opus": "^1.0.0",
+                "php": ">=5.4.0",
+                "willdurand/negotiation": "^1.3.0"
+            },
+            "require-dev": {
+                "dotink/lab": "^1.1.0"
+            },
+            "type": "opus-package",
+            "extra": {
+                "opus": {
+                    "inkwell/framework": {
+                        "plugin/boot": "boot",
+                        "plugin/config": "config"
+                    }
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "license": [
+                "AGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Matthew J. Sahagian",
+                    "email": "msahagian@dotink.org",
+                    "role": "Lead Architect / Developer"
+                }
+            ],
+            "description": "Baseline controller for inKWell",
+            "keywords": [
+                "controllers",
+                "routing"
+            ],
+            "time": "2016-06-03 05:33:38"
+        },
+        {
+            "name": "dotink/inkwell-core",
+            "version": "2.0.2",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:dotink/inkwell-core.git",
+                "reference": "8974d7d4ecb0475309b02198bc9a2e783f5511e6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dotink/inkwell-core/zipball/8974d7d4ecb0475309b02198bc9a2e783f5511e6",
+                "reference": "8974d7d4ecb0475309b02198bc9a2e783f5511e6",
+                "shasum": ""
+            },
+            "require": {
+                "dotink/flourish-core": "^1.0.0",
+                "imarc/opus": "^1.0.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "dotink/lab": "^1.1.0"
+            },
+            "type": "opus-package",
+            "extra": {
+                "opus": {
+                    "inkwell/framework": {
+                        "plugin/boot": "boot",
+                        "plugin/config": "config"
+                    }
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "license": [
+                "AGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Matthew J. Sahagian",
+                    "email": "msahagian@dotink.org",
+                    "role": "Lead Architect / Developer"
+                }
+            ],
+            "description": "Core application and interfaces",
+            "keywords": [
+                "mvc"
+            ],
+            "time": "2016-08-04 07:21:26"
+        },
+        {
+            "name": "dotink/inkwell-doctrine",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:dotink/inkwell-doctrine.git",
+                "reference": "6c6e160abd743f1954d6326c8bc22001dbc904c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dotink/inkwell-doctrine/zipball/6c6e160abd743f1954d6326c8bc22001dbc904c2",
+                "reference": "6c6e160abd743f1954d6326c8bc22001dbc904c2",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/orm": "2.5.*",
+                "nette/php-generator": "2.4.*",
+                "php": ">=5.4.0",
+                "symfony/yaml": "2.*"
+            },
+            "type": "opus-package",
+            "extra": {
+                "opus": {
+                    "inkwell/framework": {
+                        "plugin/bin": "bin",
+                        "plugin/config": "config",
+                        "plugin/boot": "boot"
+                    }
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "license": [
+                "AGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Matthew J. Sahagian",
+                    "email": "msahagian@dotink.org",
+                    "role": "Lead Architect / Developer"
+                }
+            ],
+            "description": "Doctrine 2 Integration for inKWell",
+            "keywords": [
+                "database",
+                "doctrine",
+                "orm"
+            ],
+            "time": "2016-08-11 06:36:48"
+        },
+        {
+            "name": "dotink/inkwell-events",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:dotink/inkwell-events.git",
+                "reference": "f164ba5eabb8c64f7d49788b2fa4ee4cdaa4170b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dotink/inkwell-events/zipball/f164ba5eabb8c64f7d49788b2fa4ee4cdaa4170b",
+                "reference": "f164ba5eabb8c64f7d49788b2fa4ee4cdaa4170b",
+                "shasum": ""
+            },
+            "require": {
+                "dotink/flourish-core": "^1.0.0",
+                "imarc/opus": "^1.0.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "dotink/lab": "^1.1.0"
+            },
+            "type": "opus-package",
+            "extra": {
+                "opus": {
+                    "inkwell/framework": {
+                        "plugin/boot": "boot",
+                        "plugin/config": "config"
+                    }
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "license": [
+                "AGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Matthew J. Sahagian",
+                    "email": "msahagian@dotink.org",
+                    "role": "Lead Architect / Developer"
+                }
+            ],
+            "description": "The inKWell event components",
+            "keywords": [
+                "events"
+            ],
+            "time": "2016-06-15 04:27:43"
+        },
+        {
+            "name": "dotink/inkwell-html",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:dotink/inkwell-html.git",
+                "reference": "29d4dafcd0bba4ae978931a347073515e1318eaf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dotink/inkwell-html/zipball/29d4dafcd0bba4ae978931a347073515e1318eaf",
+                "reference": "29d4dafcd0bba4ae978931a347073515e1318eaf",
+                "shasum": ""
+            },
+            "require": {
+                "imarc/opus": "^1.0.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "dotink/lab": "^1.1.0"
+            },
+            "type": "opus-package",
+            "extra": {
+                "opus": {
+                    "inkwell/framework": {
+                        "plugin/boot": "boot",
+                        "plugin/config": "config"
+                    }
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "license": [
+                "AGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Matthew J. Sahagian",
+                    "email": "msahagian@dotink.org",
+                    "role": "Lead Architect / Developer"
+                }
+            ],
+            "description": "HTML Helpers",
+            "keywords": [
+                "html",
+                "templating"
+            ],
+            "time": "2016-08-11 04:47:56"
+        },
+        {
+            "name": "dotink/inkwell-http",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:dotink/inkwell-http.git",
+                "reference": "22bca3bcaa62e1b76be22f402e80c0b02b6220f9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dotink/inkwell-http/zipball/22bca3bcaa62e1b76be22f402e80c0b02b6220f9",
+                "reference": "22bca3bcaa62e1b76be22f402e80c0b02b6220f9",
+                "shasum": ""
+            },
+            "require": {
+                "dotink/flourish-collection": "^1.0.0",
+                "dotink/flourish-core": "^1.0.0",
+                "dotink/flourish-url": "^1.0.0",
+                "dotink/inkwell-transport": "^1.0.0",
+                "imarc/opus": "^1.0.0",
+                "php": ">=5.4.0",
+                "psr/http-message": "^1.0.0"
+            },
+            "require-dev": {
+                "dotink/lab": "^1.1.0"
+            },
+            "type": "opus-package",
+            "extra": {
+                "opus": {
+                    "inkwell/framework": {
+                        "plugin/boot": "boot",
+                        "plugin/config": "config"
+                    }
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "license": [
+                "AGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Matthew J. Sahagian",
+                    "email": "msahagian@dotink.org",
+                    "role": "Lead Architect / Developer"
+                }
+            ],
+            "description": "HTTP transport",
+            "keywords": [
+                "http"
+            ],
+            "time": "2016-08-04 07:16:37"
+        },
+        {
+            "name": "dotink/inkwell-relay",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:dotink/inkwell-relay.git",
+                "reference": "460b5652fc8a0b3e3327051bacd25606ef5d99fc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dotink/inkwell-relay/zipball/460b5652fc8a0b3e3327051bacd25606ef5d99fc",
+                "reference": "460b5652fc8a0b3e3327051bacd25606ef5d99fc",
+                "shasum": ""
+            },
+            "require": {
+                "dotink/flourish-core": "^1.0.0",
+                "dotink/inkwell-http": "^1.0.0",
+                "imarc/opus": "^1.0.0",
+                "php": ">=5.5.0",
+                "relay/relay": "^1.0"
+            },
+            "require-dev": {
+                "dotink/lab": "^1.1.0"
+            },
+            "type": "opus-package",
+            "extra": {
+                "opus": {
+                    "inkwell/framework": {
+                        "plugin/boot": "boot",
+                        "plugin/config": "config"
+                    }
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "license": [
+                "AGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Matthew J. Sahagian",
+                    "email": "msahagian@dotink.org",
+                    "role": "Lead Architect / Developer"
+                }
+            ],
+            "description": "An inKWell middleware layer based on relay",
+            "keywords": [
+                "middleware",
+                "relay"
+            ],
+            "time": "2016-06-15 04:33:07"
+        },
+        {
+            "name": "dotink/inkwell-routing",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:dotink/inkwell-routing.git",
+                "reference": "95b117bfcab60fa428b63f4fd2243d300c3faf7a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dotink/inkwell-routing/zipball/95b117bfcab60fa428b63f4fd2243d300c3faf7a",
+                "reference": "95b117bfcab60fa428b63f4fd2243d300c3faf7a",
+                "shasum": ""
+            },
+            "require": {
+                "dotink/flourish-core": "^1.0.0",
+                "dotink/inkwell-events": "^1.0.0",
+                "dotink/inkwell-http": "^1.0.0",
+                "imarc/opus": "^1.0.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "dotink/lab": "^1.1.0",
+                "dotink/parody": "^1.0.0"
+            },
+            "type": "opus-package",
+            "extra": {
+                "opus": {
+                    "inkwell/framework": {
+                        "plugin/boot": "boot",
+                        "plugin/config": "config"
+                    }
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "license": [
+                "AGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Matthew J. Sahagian",
+                    "email": "msahagian@dotink.org",
+                    "role": "Lead Architect / Developer"
+                }
+            ],
+            "description": "The inKWell Router",
+            "keywords": [
+                "router"
+            ],
+            "time": "2016-08-11 02:31:53"
+        },
+        {
+            "name": "dotink/inkwell-transport",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:dotink/inkwell-transport.git",
+                "reference": "ffea71b2328950ab5c409cde611d93067358ccdf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dotink/inkwell-transport/zipball/ffea71b2328950ab5c409cde611d93067358ccdf",
+                "reference": "ffea71b2328950ab5c409cde611d93067358ccdf",
+                "shasum": ""
+            },
+            "require": {
+                "dotink/flourish-core": "^1.0.0",
+                "imarc/opus": "^1.0.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "dotink/lab": "^1.1.0"
+            },
+            "type": "opus-package",
+            "extra": {
+                "opus": {
+                    "inkwell/framework": []
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "license": [
+                "AGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Matthew J. Sahagian",
+                    "email": "msahagian@dotink.org",
+                    "role": "Lead Architect / Developer"
+                }
+            ],
+            "description": "A protocol agnostic transport foundation",
+            "keywords": [
+                "http"
+            ],
+            "time": "2016-06-15 04:48:02"
+        },
+        {
+            "name": "dotink/inkwell-view",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:dotink/inkwell-view.git",
+                "reference": "c0a8f57bb582d1749eadd132dcffa88bb77c0848"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dotink/inkwell-view/zipball/c0a8f57bb582d1749eadd132dcffa88bb77c0848",
+                "reference": "c0a8f57bb582d1749eadd132dcffa88bb77c0848",
+                "shasum": ""
+            },
+            "require": {
+                "dotink/flourish-core": "^1.0.0",
+                "imarc/opus": "^1.0.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "dotink/lab": "^1.1.0"
+            },
+            "type": "opus-package",
+            "extra": {
+                "opus": {
+                    "inkwell/framework": {
+                        "plugin/boot": "boot",
+                        "plugin/config": "config",
+                        "plugin/user": "user"
+                    }
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "license": [
+                "AGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Matthew J. Sahagian",
+                    "email": "msahagian@dotink.org",
+                    "role": "Lead Architect / Developer"
+                }
+            ],
+            "description": "Views for the inKWell Framework",
+            "keywords": [
+                "html",
+                "views"
+            ],
+            "time": "2016-06-15 04:45:29"
+        },
+        {
+            "name": "filp/whoops",
+            "version": "2.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/filp/whoops.git",
+                "reference": "8828aaa2178e0a19325522e2a45282ff0a14649b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/8828aaa2178e0a19325522e2a45282ff0a14649b",
+                "reference": "8828aaa2178e0a19325522e2a45282ff0a14649b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "^4.8 || ^5.0",
+                "symfony/var-dumper": "~3.0"
+            },
+            "suggest": {
+                "symfony/var-dumper": "Pretty print complex values better with var-dumper available",
+                "whoops/soap": "Formats errors as SOAP responses"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Whoops\\": "src/Whoops/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Filipe Dobreira",
+                    "homepage": "https://github.com/filp",
+                    "role": "Developer"
+                }
+            ],
+            "description": "php error handling for cool kids",
+            "homepage": "https://github.com/filp/whoops",
+            "keywords": [
+                "error",
+                "exception",
+                "handling",
+                "library",
+                "whoops",
+                "zf2"
+            ],
+            "time": "2016-05-06 18:25:35"
+        },
+        {
+            "name": "imarc/opus",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/imarc/opus.git",
+                "reference": "9a03c5b48d8e5b094dca77cc045d801ae096bbf4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/imarc/opus/zipball/9a03c5b48d8e5b094dca77cc045d801ae096bbf4",
+                "reference": "9a03c5b48d8e5b094dca77cc045d801ae096bbf4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "composer-installer",
+            "extra": {
+                "class": "iMarc\\Opus\\Processor"
+            },
+            "autoload": {
+                "psr-0": {
+                    "iMarc\\Opus": "src/",
+                    "Diff": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matthew J. Sahagian",
+                    "email": "matt@imarc.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Multi-framework asset and module packaging for composer",
+            "keywords": [
+                "package management"
+            ],
+            "time": "2015-02-22 20:52:20"
+        },
+        {
+            "name": "imarc/tenet",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/imarc/tenet.git",
+                "reference": "a530b7cc7cf2932772f64f2e4c03aa35f3ab40b7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/imarc/tenet/zipball/a530b7cc7cf2932772f64f2e4c03aa35f3ab40b7",
+                "reference": "a530b7cc7cf2932772f64f2e4c03aa35f3ab40b7",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/common": "~2.4",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tenet\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeff Turcotte",
+                    "email": "jeff@imarc.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Doctrine Extensions & Helpers",
+            "keywords": [
+                "doctrine",
+                "orm"
+            ],
+            "time": "2015-10-20 06:05:39"
+        },
+        {
+            "name": "jakub-onderka/php-console-color",
+            "version": "0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JakubOnderka/PHP-Console-Color.git",
+                "reference": "e0b393dacf7703fc36a4efc3df1435485197e6c1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JakubOnderka/PHP-Console-Color/zipball/e0b393dacf7703fc36a4efc3df1435485197e6c1",
+                "reference": "e0b393dacf7703fc36a4efc3df1435485197e6c1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "jakub-onderka/php-code-style": "1.0",
+                "jakub-onderka/php-parallel-lint": "0.*",
+                "jakub-onderka/php-var-dump-check": "0.*",
+                "phpunit/phpunit": "3.7.*",
+                "squizlabs/php_codesniffer": "1.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "JakubOnderka\\PhpConsoleColor": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Jakub Onderka",
+                    "email": "jakub.onderka@gmail.com",
+                    "homepage": "http://www.acci.cz"
+                }
+            ],
+            "time": "2014-04-08 15:00:19"
+        },
+        {
+            "name": "jakub-onderka/php-console-highlighter",
+            "version": "v0.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JakubOnderka/PHP-Console-Highlighter.git",
+                "reference": "7daa75df45242c8d5b75a22c00a201e7954e4fb5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JakubOnderka/PHP-Console-Highlighter/zipball/7daa75df45242c8d5b75a22c00a201e7954e4fb5",
+                "reference": "7daa75df45242c8d5b75a22c00a201e7954e4fb5",
+                "shasum": ""
+            },
+            "require": {
+                "jakub-onderka/php-console-color": "~0.1",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "jakub-onderka/php-code-style": "~1.0",
+                "jakub-onderka/php-parallel-lint": "~0.5",
+                "jakub-onderka/php-var-dump-check": "~0.1",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~1.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "JakubOnderka\\PhpConsoleHighlighter": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jakub Onderka",
+                    "email": "acci@acci.cz",
+                    "homepage": "http://www.acci.cz/"
+                }
+            ],
+            "time": "2015-04-20 18:58:01"
+        },
+        {
+            "name": "nette/php-generator",
+            "version": "v2.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/php-generator.git",
+                "reference": "e9f4429f5ac526661634242198a1ff394fa5440a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/php-generator/zipball/e9f4429f5ac526661634242198a1ff394fa5440a",
+                "reference": "e9f4429f5ac526661634242198a1ff394fa5440a",
+                "shasum": ""
+            },
+            "require": {
+                "nette/utils": "~2.4",
+                "php": ">=5.6.0"
+            },
+            "conflict": {
+                "nette/nette": "<2.2"
+            },
+            "require-dev": {
+                "nette/tester": "~2.0",
+                "tracy/tracy": "^2.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.4-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "https://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "https://nette.org/contributors"
+                }
+            ],
+            "description": "Nette PHP Generator",
+            "homepage": "https://nette.org",
+            "time": "2016-07-31 13:50:37"
+        },
+        {
+            "name": "nette/utils",
+            "version": "v2.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/utils.git",
+                "reference": "c455ade9f24a1f99aa81772516764045296b8ca0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/utils/zipball/c455ade9f24a1f99aa81772516764045296b8ca0",
+                "reference": "c455ade9f24a1f99aa81772516764045296b8ca0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "conflict": {
+                "nette/nette": "<2.2"
+            },
+            "require-dev": {
+                "nette/tester": "~2.0",
+                "tracy/tracy": "^2.3"
+            },
+            "suggest": {
+                "ext-gd": "to use Image",
+                "ext-iconv": "to use Strings::webalize() and toAscii()",
+                "ext-intl": "for script transliteration in Strings::webalize() and toAscii()",
+                "ext-mbstring": "to use Strings::lower() etc..."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.4-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "https://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "https://nette.org/contributors"
+                }
+            ],
+            "description": "Nette Utility Classes",
+            "homepage": "https://nette.org",
+            "time": "2016-06-17 13:15:10"
+        },
+        {
+            "name": "nikic/php-parser",
+            "version": "v2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nikic/PHP-Parser.git",
+                "reference": "47b254ea51f1d6d5dc04b9b299e88346bf2369e3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/47b254ea51f1d6d5dc04b9b299e88346bf2369e3",
+                "reference": "47b254ea51f1d6d5dc04b9b299e88346bf2369e3",
+                "shasum": ""
+            },
+            "require": {
+                "ext-tokenizer": "*",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "bin": [
+                "bin/php-parse"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PhpParser\\": "lib/PhpParser"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nikita Popov"
+                }
+            ],
+            "description": "A PHP parser written in PHP",
+            "keywords": [
+                "parser",
+                "php"
+            ],
+            "time": "2016-04-19 13:41:41"
+        },
+        {
+            "name": "psr/http-message",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "time": "2016-08-06 14:39:51"
+        },
+        {
+            "name": "psy/psysh",
+            "version": "v0.7.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bobthecow/psysh.git",
+                "reference": "e64e10b20f8d229cac76399e1f3edddb57a0f280"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/e64e10b20f8d229cac76399e1f3edddb57a0f280",
+                "reference": "e64e10b20f8d229cac76399e1f3edddb57a0f280",
+                "shasum": ""
+            },
+            "require": {
+                "dnoegel/php-xdg-base-dir": "0.1",
+                "jakub-onderka/php-console-highlighter": "0.3.*",
+                "nikic/php-parser": "^1.2.1|~2.0",
+                "php": ">=5.3.9",
+                "symfony/console": "~2.3.10|^2.4.2|~3.0",
+                "symfony/var-dumper": "~2.7|~3.0"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "~1.5",
+                "phpunit/phpunit": "~3.7|~4.0|~5.0",
+                "squizlabs/php_codesniffer": "~2.0",
+                "symfony/finder": "~2.1|~3.0"
+            },
+            "suggest": {
+                "ext-pcntl": "Enabling the PCNTL extension makes PsySH a lot happier :)",
+                "ext-pdo-sqlite": "The doc command requires SQLite to work.",
+                "ext-posix": "If you have PCNTL, you'll want the POSIX extension as well.",
+                "ext-readline": "Enables support for arrow-key history navigation, and showing and manipulating command history."
+            },
+            "bin": [
+                "bin/psysh"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "0.8.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/Psy/functions.php"
+                ],
+                "psr-4": {
+                    "Psy\\": "src/Psy/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Justin Hileman",
+                    "email": "justin@justinhileman.info",
+                    "homepage": "http://justinhileman.com"
+                }
+            ],
+            "description": "An interactive shell for modern PHP.",
+            "homepage": "http://psysh.org",
+            "keywords": [
+                "REPL",
+                "console",
+                "interactive",
+                "shell"
+            ],
+            "time": "2016-03-09 05:03:14"
+        },
+        {
+            "name": "rdlowrey/auryn",
+            "version": "v1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rdlowrey/auryn.git",
+                "reference": "2e4240791162dfe073d59654d8dc06df0eb0b73f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rdlowrey/auryn/zipball/2e4240791162dfe073d59654d8dc06df0eb0b73f",
+                "reference": "2e4240791162dfe073d59654d8dc06df0eb0b73f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "athletic/athletic": "~0.1",
+                "fabpot/php-cs-fixer": "~1.9",
+                "phpunit/phpunit": "^4.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Auryn\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dan Ackroyd",
+                    "email": "Danack@basereality.com",
+                    "homepage": "http://www.basereality.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Levi Morrison",
+                    "email": "levim@php.net",
+                    "homepage": "http://morrisonlevi.github.com/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Daniel Lowrey",
+                    "email": "rdlowrey@gmail.com",
+                    "homepage": "https://github.com/rdlowrey",
+                    "role": "Creator / Main Developer"
+                }
+            ],
+            "description": "Auryn is a dependency injector for bootstrapping object-oriented PHP applications.",
+            "homepage": "https://github.com/rdlowrey/auryn",
+            "keywords": [
+                "dependency injection",
+                "dic",
+                "ioc"
+            ],
+            "time": "2016-03-14 20:10:19"
+        },
+        {
+            "name": "relay/relay",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/relayphp/Relay.Relay.git",
+                "reference": "e835fc45351b7a92a6fdf2a36be7bd59ef56c8ae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/relayphp/Relay.Relay/zipball/e835fc45351b7a92a6fdf2a36be7bd59ef56c8ae",
+                "reference": "e835fc45351b7a92a6fdf2a36be7bd59ef56c8ae",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0",
+                "psr/http-message": "~1.0"
+            },
+            "require-dev": {
+                "zendframework/zend-diactoros": "~1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Relay\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Relay.Relay Contributors",
+                    "homepage": "https://github.com/relayphp/Relay.Relay/contributors"
+                }
+            ],
+            "description": "A PSR-7 middleware dispatcher.",
+            "homepage": "https://github.com/relayphp/Relay.Relay",
+            "keywords": [
+                "middleware",
+                "psr-7"
+            ],
+            "time": "2015-12-17 18:18:30"
+        },
+        {
+            "name": "symfony/console",
+            "version": "v3.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/console.git",
+                "reference": "f9e638e8149e9e41b570ff092f8007c477ef0ce5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/console/zipball/f9e638e8149e9e41b570ff092f8007c477ef0ce5",
+                "reference": "f9e638e8149e9e41b570ff092f8007c477ef0ce5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9",
+                "symfony/polyfill-mbstring": "~1.0"
+            },
+            "require-dev": {
+                "psr/log": "~1.0",
+                "symfony/event-dispatcher": "~2.8|~3.0",
+                "symfony/process": "~2.8|~3.0"
+            },
+            "suggest": {
+                "psr/log": "For using the console logger",
+                "symfony/event-dispatcher": "",
+                "symfony/process": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Console\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Console Component",
+            "homepage": "https://symfony.com",
+            "time": "2016-07-26 08:04:17"
+        },
+        {
+            "name": "symfony/polyfill-mbstring",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-mbstring.git",
+                "reference": "dff51f72b0706335131b00a7f49606168c582594"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/dff51f72b0706335131b00a7f49606168c582594",
+                "reference": "dff51f72b0706335131b00a7f49606168c582594",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "suggest": {
+                "ext-mbstring": "For best performance"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Mbstring\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill for the Mbstring extension",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "mbstring",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2016-05-18 14:26:46"
+        },
+        {
+            "name": "symfony/var-dumper",
+            "version": "v3.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/var-dumper.git",
+                "reference": "076235b750137518408f1bc17a8e69b43211836a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/076235b750137518408f1bc17a8e69b43211836a",
+                "reference": "076235b750137518408f1bc17a8e69b43211836a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9",
+                "symfony/polyfill-mbstring": "~1.0"
+            },
+            "require-dev": {
+                "twig/twig": "~1.20|~2.0"
+            },
+            "suggest": {
+                "ext-symfony_debug": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "Resources/functions/dump.php"
+                ],
+                "psr-4": {
+                    "Symfony\\Component\\VarDumper\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony mechanism for exploring and dumping PHP variables",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "debug",
+                "dump"
+            ],
+            "time": "2016-07-26 08:04:17"
+        },
+        {
+            "name": "symfony/yaml",
+            "version": "v2.8.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "0ceab136f43ed9d3e97b3eea32a7855dc50c121d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/0ceab136f43ed9d3e97b3eea32a7855dc50c121d",
+                "reference": "0ceab136f43ed9d3e97b3eea32a7855dc50c121d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Yaml\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Yaml Component",
+            "homepage": "https://symfony.com",
+            "time": "2016-07-17 09:06:15"
+        },
+        {
+            "name": "twig/twig",
+            "version": "v1.24.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twigphp/Twig.git",
+                "reference": "3566d311a92aae4deec6e48682dc5a4528c4a512"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/3566d311a92aae4deec6e48682dc5a4528c4a512",
+                "reference": "3566d311a92aae4deec6e48682dc5a4528c4a512",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.7"
+            },
+            "require-dev": {
+                "symfony/debug": "~2.7",
+                "symfony/phpunit-bridge": "~2.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.24-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Twig_": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Armin Ronacher",
+                    "email": "armin.ronacher@active-4.com",
+                    "role": "Project Founder"
+                },
+                {
+                    "name": "Twig Team",
+                    "homepage": "http://twig.sensiolabs.org/contributors",
+                    "role": "Contributors"
+                }
+            ],
+            "description": "Twig, the flexible, fast, and secure template language for PHP",
+            "homepage": "http://twig.sensiolabs.org",
+            "keywords": [
+                "templating"
+            ],
+            "time": "2016-05-30 09:11:59"
+        },
+        {
+            "name": "vlucas/phpdotenv",
+            "version": "v2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vlucas/phpdotenv.git",
+                "reference": "9ca5644c536654e9509b9d257f53c58630eb2a6a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/9ca5644c536654e9509b9d257f53c58630eb2a6a",
+                "reference": "9ca5644c536654e9509b9d257f53c58630eb2a6a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8 || ^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dotenv\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause-Attribution"
+            ],
+            "authors": [
+                {
+                    "name": "Vance Lucas",
+                    "email": "vance@vancelucas.com",
+                    "homepage": "http://www.vancelucas.com"
+                }
+            ],
+            "description": "Loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER` automagically.",
+            "keywords": [
+                "dotenv",
+                "env",
+                "environment"
+            ],
+            "time": "2016-06-14 14:14:52"
+        },
+        {
+            "name": "willdurand/negotiation",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/willdurand/Negotiation.git",
+                "reference": "2a59f2376557303e3fa91465ab691abb82945edf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/willdurand/Negotiation/zipball/2a59f2376557303e3fa91465ab691abb82945edf",
+                "reference": "2a59f2376557303e3fa91465ab691abb82945edf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Negotiation\\": "src/Negotiation"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "William Durand",
+                    "email": "william.durand1@gmail.com"
+                }
+            ],
+            "description": "Content Negotiation tools for PHP provided as a standalone library.",
+            "homepage": "http://williamdurand.fr/Negotiation/",
+            "keywords": [
+                "accept",
+                "content",
+                "format",
+                "header",
+                "negotiation"
+            ],
+            "time": "2015-10-01 07:42:40"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [
+        {
+            "alias": "1.0.0",
+            "alias_normalized": "1.0.0.0",
+            "version": "9999999-dev",
+            "package": "dotink/inkwell-doctrine"
+        },
+        {
+            "alias": "2.0",
+            "alias_normalized": "2.0.0.0",
+            "version": "9999999-dev",
+            "package": "imarc/tenet"
+        }
+    ],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "dotink/inkwell-doctrine": 20,
+        "imarc/tenet": 20
+    },
+    "prefer-stable": true,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=5.4.0"
+    },
+    "platform-dev": []
+}

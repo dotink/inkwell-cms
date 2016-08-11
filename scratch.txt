@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{{ page.title }}</title>
+    </head>
+    <body>
+        <header>
+
+        </header>
+
+
+section.page=1
+section.contents = 				<div class="group featurette" data-block>
+					<div data-node>
+
+					</div>
+					<div data-node>
+
+					</div>
+				</div>
+
+				...
+section.name="primary"
+
+
+blocks:
+	template: 		<div data-block>    ---   $('<div>')
+						<div class="group featurette">
+							<div data-node>
+
+							</div>
+							<div data-node>
+
+							</div>
+						</div>
+					</div>
+
+block_settings:
+	block: 213
+	name:
+	type:
+	data:
+	value:
+
+page_blocks:
+	id: x
+	page: 1
+	block: 213
+	section: ...
+	position: x
+	content:
+		<div class="group featurette">
+			<div data-node>
+
+			</div>
+			<div data-node>
+
+			</div>
+		</div>
+
+page_block_settings:
+	page_block: x
+	name:
+	value:
+
+
+		<section role="main" class="group">
+		    <div id="primary" class="principal" data-section>
+				<div class="group featurette" data-block>    ---   $('<div>')
+					<div data-node>
+
+					</div>
+					<div data-node>
+
+					</div>
+				</div>
+
+				<div class="group featurette" data-block>
+					<div data-node>
+
+					</div>
+					<div data-node>
+
+					</div>
+				</div>
+
+				 + ^v
+		    </div>
+		    <div class="aside" data-container="secondary">
+
+
+				+ ^V
+		    </div>
+		</section>
+        <footer>
+
+        </footer>
+    </body>
+
+	...
+</html>

@@ -1,0 +1,40 @@
+Block:
+  type: entity
+  table: blocks
+  repositoryClass: Blocks
+
+  id:
+    id:
+      column: id
+      type: integer
+      generator:
+        strategy: IDENTITY
+
+  fields:
+    title:
+      column: title
+      type: string
+    name:
+      column: name
+      type: string
+    description:
+      column: description
+      type: text
+      nullable: true
+    template:
+      column: template
+      type: text
+
+  manyToOne:
+    category:
+      targetEntity: BlockCategory
+      joinColumn:
+        name: category
+        referencedColumnName: name
+        onDelete: RESTRICT
+    routine:
+      targetEntity: BlockRoutine
+      joinColumn:
+        name: routine
+        referencedColumnName: class
+        onDelete: RESTRICT

@@ -1,0 +1,26 @@
+Layout:
+  type: entity
+  table: layouts
+  repositoryClass: Layouts
+
+  id:
+    id:
+      column: id
+      type: integer
+      generator:
+        strategy: IDENTITY
+
+  fields:
+    title:
+      column: title
+      type: string
+    name:
+      column: name
+      type: string
+    description:
+      column: description
+      type: text
+      nullable: true
+    template:
+      column: template
+      type: text

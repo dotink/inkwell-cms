@@ -1,0 +1,9 @@
+BlockRoutine:
+  type: entity
+  table: block_routines
+  repositoryClass: BlockRoutines
+
+  id:
+    class:
+      column: class
+      type: string

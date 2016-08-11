@@ -1,0 +1,9 @@
+BlockCategory:
+  type: entity
+  table: block_categories
+  repositoryClass: BlockCategories
+
+  id:
+    name:
+      column: name
+      type: string

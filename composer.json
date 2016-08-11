@@ -1,7 +1,7 @@
 {
-	"name": "inkwell/framework",
-	"description": "The inKWell framework",
-	"keywords": ["mvc", "framework", "application"],
+	"name": "inkwell/cms",
+	"description": "The inKWell CMS",
+	"keywords": ["cms"],
 	"license": "AGPL 3.0",
 	"minimum-stability": "dev",
 	"prefer-stable": true,
@@ -24,7 +24,12 @@
 		"dotink/affinity": "^1.2.0",
 		"dotink/inkwell-core": "^2.0.0",
 		"vlucas/phpdotenv": "^2.0.0",
-		"filp/whoops": "^2.1.0"
+		"filp/whoops": "^2.1.0",
+		"dotink/inkwell-relay": "^1.0.0",
+		"dotink/inkwell-components": "^1.0.0",
+		"dotink/inkwell-doctrine": "dev-master as 1.0.0",
+		"imarc/tenet": "dev-master as 2.0",
+		"twig/twig": "^1.0.0"
 	},
 	"autoload": {
 		"classmap": ["user/"]

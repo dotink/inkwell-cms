@@ -1,0 +1,34 @@
+Page:
+  type: entity
+  table: pages
+  repositoryClass: Pages
+
+  id:
+    id:
+      column: id
+      type: integer
+      generator:
+        strategy: IDENTITY
+
+  fields:
+    title:
+      column: title
+      type: string
+    name:
+      column: name
+      type: string
+    url:
+      column: url
+      type: string
+    description:
+      column: description
+      type: text
+      nullable: true
+
+  manyToOne:
+    layout:
+      targetEntity: Layout
+      joinColumn:
+        name: layout
+        referencedColumnName: id
+        onDelete: RESTRICT

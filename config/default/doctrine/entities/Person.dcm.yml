@@ -1,0 +1,53 @@
+Person:
+  type: entity
+  table: people
+  repositoryClass: People
+
+  id:
+    id:
+      column: id
+      type: integer
+      generator:
+        strategy: IDENTITY
+
+  fields:
+    nickName:
+      column: nick_name
+      type: string
+    name:
+      column: name
+      type: string
+      nullable: true
+    emailAddress:
+      column: email_address
+      type: string
+    addressLine1:
+      column: address_line_1
+      type: string
+      nullable: true
+    addressLine2:
+      column: address_line_2
+      type: string
+      nullable: true
+    city:
+      column: city
+      type: string
+      nullable: true
+    state:
+      column: state
+      type: string
+      nullable: true
+    postalCode:
+      column: postal_code
+      type: string
+    longitude:
+      column: longitude
+      type: float
+      nullable: true
+    latitude:
+      column: latitude
+      type: float
+      nullable: true
+    dateJoined:
+      column: date_joined
+      type: date
