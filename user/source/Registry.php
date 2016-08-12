@@ -2,137 +2,140 @@
 {
 
 	use Inkwell\Core;
+	use Dotink\Flourish;
 
 	/**
 	 *
 	 */
 	class Registry
 	{
-		private $baseURL = '/';
+		protected $pluginBaseUrl  = '/admin';
+		protected $pluginMap = array();
+		protected $plugins = array();
 
-		private $plugins = array();
+		protected $routineBaseUrl = '/api';
+		protected $routineMap = array();
+		protected $routines = array();
+
 
 		/**
 		 *
 		 */
-		public function add($entry, $plugin, array $settings = array())
+		public function addPlugin($plugin, $entry)
 		{
-			list($module, $tool) = explode('.', strtolower($entry));
+			if (isset($this->plugins[$entry])) {
+				throw new Flourish\ProgrammerException();
+			}
 
-			if (!$this->hasModule($module)) {
-				$this->plugins[$module] = [$tool => $plugin];
+			$parts = explode('/', $entry);
+
+			if (count($parts) != 2) {
+				throw new Flourish\ProgrammerException();
+			}
+
+			if (!isset($this->pluginMap[$parts[0]])) {
+				$this->pluginMap[$parts[0]] = [$parts[1] => $plugin];
 			} else {
-				$this->plugins[$module][$tool] = $plugin;
+				$this->pluginMap[$parts[0]][$parts[1]] = $plugin;
 			}
+
+			$this->plugins[$entry] = $plugin;
 		}
 
 
 		/**
 		 *
 		 */
-		public function anchor($module = NULL, $tool = NULL, $collection = TRUE)
+		public function addRoutine($routine, $entry)
 		{
-			if (!$module) {
-				$url = $this->baseURL;
+			if (isset($this->routine[$entry])) {
+				throw new Flourish\ProgrammerException();
+			}
+
+			$parts = explode('/', $entry);
+
+			if (count($parts) != 2) {
+				throw new Flourish\ProgrammerException();
+			}
+
+			if (!isset($this->routineMap[$parts[0]])) {
+				$this->routineMap[$parts[0]] = [$parts[1] => $routine];
 			} else {
-				if (!$tool) {
-					$tool = $this->getTools($module)[0];
-				}
-
-				$url = implode('/', [$this->baseURL, $module, $tool]);
+				$this->routineMap[$parts[0]][$parts[1]] = $routine;
 			}
 
-			return $url . ($collection ? '/' : '');
+			$this->routines[$entry] = $routine;
 		}
 
 
 		/**
 		 *
 		 */
-		public function checkModule($plugin, $module)
+		public function getPluginBaseUrl()
 		{
-			if (!$this->hasModule($module)) {
-				return FALSE;
+			return $this->pluginBaseUrl;
+		}
+
+
+		/**
+		 *
+		 */
+		public function getPluginMap()
+		{
+			return $this->pluginMap;
+		}
+
+
+		/**
+		 *
+		 */
+		public function getRoutineBaseUrl()
+		{
+			return $this->routineBaseUrl;
+		}
+
+
+		/**
+		 *
+		 */
+		public function getRoutineMap()
+		{
+			return $this->routineMap;
+		}
+
+
+		/**
+		 *
+		 */
+		public function anchor($class)
+		{
+			if ($entry = array_search($class, $this->plugins)) {
+				$base = $this->pluginBaseUrl;
+			} elseif ($entry = array_search($class, $this->routines)) {
+				$base = $this->routineBaseUrl;
+			} else {
+				throw new Flourish\ProgrammerException();
 			}
 
-			return array_search(get_class($plugin), $this->plugins[$module]);
+			return implode('/', [$base, $entry]);
 		}
 
 
 		/**
 		 *
 		 */
-		public function getModules()
+		public function setPluginBaseUrl($plugin_base_url)
 		{
-			return array_keys($this->plugins);
+			$this->pluginBaseUrl = $plugin_base_url;
 		}
 
 
 		/**
 		 *
 		 */
-		public function getTools($module)
+		public function setRoutineBaseUrl($routine_base_url)
 		{
-			if (!$this->hasModule($module)) {
-				return array();
-			}
-
-			return array_keys($this->plugins[strtolower($module)]);
-		}
-
-
-		/**
-		 *
-		 */
-		public function getPath($plugin)
-		{
-			return array_search($plugin, $this->getPlugins());
-		}
-
-
-		/**
-		 *
-		 */
-		public function getPlugin($module, $tool)
-		{
-			return isset($this->plugins[$module][$tool])
-				? $this->plugins[$module][$tool]
-				: NULL;
-		}
-
-
-		/**
-		 *
-		 */
-		public function getPlugins()
-		{
-			$plugins = array();
-
-			foreach ($this->plugins as $module => $tools) {
-				foreach ($tools as $tool => $plugin) {
-					$plugins[$module . '/' . $tool] = $plugin;
-				}
-			}
-
-			return $plugins;
-		}
-
-
-		/**
-		 *
-		 */
-		public function hasModule($module)
-		{
-			return isset($this->plugins[strtolower($module)]);
-		}
-
-
-		/**
-		 *
-		 */
-		public function setBaseUrl($base_url)
-		{
-			$this->baseURL = $base_url;
+			$this->routineBaseUrl = $routine_base_url;
 		}
 	}
 }

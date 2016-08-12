@@ -2,43 +2,15 @@
 
 	use IW\HTTP;
 
-	return Affinity\Config::create(['routes'], [
-		//
-		// Global routing configuration
-		//
-
-		'@routes' => [
-
-			//
-			// The base URL for all configured anchors, handlers, and redirects in this
-			// context
-			//
-
-			'base_url' => '/admin',
-
-			//
-			//
-			//
-
-			'links' => [
-				'/'             => 'Inkwell\CMS\MainController::dashboard',
-				'/[!:section]/' => 'Inkwell\CMS\MainController::section'
-			],
-
-			//
-			//
-			//
-
-			'handlers' => [
-
-			],
-
-			//
-			//
-			//
-
-			'redirects' => [
-
+	return Affinity\Config::create(['routes', 'providers'], [
+		'@providers' => [
+			'mapping' => [
+				'Twig_LoaderInterface' => 'Inkwell\CMS\Loader'
 			]
+		],
+
+		'base_urls' => [
+			'plugins'  => $app->getEnvironment('PLUGIN_BASE_URL', '/admin'),
+			'routines' => $app->getEnvironment('ROUTINE_BASE_URL', '/api')
 		]
 	]);
