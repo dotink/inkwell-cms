@@ -31,12 +31,6 @@
 
 		/**
 		 * @access protected
-		 * @var ModuleRoutine
-		 */
-		protected $routine;
-
-		/**
-		 * @access protected
 		 * @var string
 		 */
 		protected $template;
@@ -101,18 +95,6 @@
 		public function getName()
 		{
 			return $this->name;
-		}
-
-
-		/**
-		 * Get the value of routine
-		 *
-		 * @access public
-		 * @return ModuleRoutine The value of routine
-		 */
-		public function getRoutine()
-		{
-			return $this->routine;
 		}
 
 
@@ -195,21 +177,6 @@
 		public function setName($value)
 		{
 			$this->name = $value;
-
-			return $this;
-		}
-
-
-		/**
-		 * Set the value of routine
-		 *
-		 * @access public
-		 * @param ModuleRoutine $value The value to set to routine
-		 * @return Module The object instance for method chaining
-		 */
-		public function setRoutine(\ModuleRoutine $value)
-		{
-			$this->routine = $value;
 
 			return $this;
 		}

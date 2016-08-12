@@ -1,6 +1,6 @@
 <?php namespace Inkwell\HTML;
 
-	$this['title'] = 'Edit Page';
+	$this['title'] = 'Create Page';
 
 	$this->expand('content', 'master.html');
 

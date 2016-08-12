@@ -1,6 +1,23 @@
 <?php
 
 	return Affinity\Action::create(['routing'], function($app, $broker) {
+
+		$broker->prepare('Twig_Environment', function($twig, $broker) {
+			$twig->addTokenParser($broker->make('Inkwell\CMS\Twig\IncludeTokenParser'));
+		});
+
+		$broker->prepare('Inkwell\CMS\Plugin', function($plugin, $broker) use ($app) {
+			$view = $broker->make('Inkwell\View', [
+				':root_directory' => $app->getDirectory('user/templates/cms')
+			])->set([
+				'plugin'   => $plugin,
+				'registry' => $app['registry'],
+			]);
+
+			$plugin->setView($view);
+		});
+
+
 		//
 		// Register any plugins
 		//
@@ -8,6 +25,7 @@
 		$plugin_base_url  = $this->fetch('cms/core', 'base_urls.plugins', '/admin');
 		$routine_base_url = $this->fetch('cms/core', 'base_urls.routines', '/api');
 		$app['registry']  = $broker->make('Inkwell\CMS\Plugin\Registry');
+		$app['twig']      = $broker->make('Twig_Environment');
 
 		$app['registry']->setPluginBaseUrl($plugin_base_url);
 		$app['registry']->setRoutineBaseUrl($routine_base_url);
@@ -34,16 +52,8 @@
 
 		$app['routes']->link('/', '[(?:.*):1]', 'Inkwell\CMS\MainController::page');
 
+
 		$broker->share($app['registry']);
+		$broker->share($app['twig']);
 
-		$broker->prepare('Inkwell\CMS\Plugin', function($plugin, $broker) use ($app) {
-			$view = $broker->make('Inkwell\View', [
-				':root_directory' => $app->getDirectory('user/templates/cms')
-			])->set([
-				'plugin'   => $plugin,
-				'registry' => $app['registry'],
-			]);
-
-			$plugin->setView($view);
-		});
 	});

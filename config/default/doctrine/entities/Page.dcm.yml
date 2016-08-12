@@ -22,6 +22,10 @@ Page:
       type: string
     description:
       column: description
+      type: string
+      nullable: true
+    metaDescription:
+      column: meta_description
       type: text
       nullable: true
 

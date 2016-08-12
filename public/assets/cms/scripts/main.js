@@ -18,6 +18,7 @@ $(function() {
 		editor.getSession().on('change', function(){
 			$textarea.val(editor.getSession().getValue());
 		});
-
 	});
+
+	Tipped.create('*[title]');
 });

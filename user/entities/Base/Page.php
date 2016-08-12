@@ -27,6 +27,12 @@
 		 * @access protected
 		 * @var string
 		 */
+		protected $metaDescription;
+
+		/**
+		 * @access protected
+		 * @var string
+		 */
 		protected $name;
 
 		/**
@@ -83,6 +89,18 @@
 		public function getLayout()
 		{
 			return $this->layout;
+		}
+
+
+		/**
+		 * Get the value of metaDescription
+		 *
+		 * @access public
+		 * @return string The value of metaDescription
+		 */
+		public function getMetaDescription()
+		{
+			return $this->metaDescription;
 		}
 
 
@@ -162,6 +180,21 @@
 		public function setLayout(\Layout $value)
 		{
 			$this->layout = $value;
+
+			return $this;
+		}
+
+
+		/**
+		 * Set the value of metaDescription
+		 *
+		 * @access public
+		 * @param string $value The value to set to metaDescription
+		 * @return Page The object instance for method chaining
+		 */
+		public function setMetaDescription($value)
+		{
+			$this->metaDescription = $value;
 
 			return $this;
 		}

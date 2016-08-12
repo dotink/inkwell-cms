@@ -3,7 +3,6 @@
 	use Layouts;
 	use Pages as Repository;
 	use Tenet\Accessor as Agent;
-	use Inkwell\CMS;
 	use IW\HTTP;
 
 	class Pages extends AbstractPlugin
@@ -18,7 +17,7 @@
 		{
 			parent::route($group);
 
-			$group->link('/[+:id]-[!:name]', static::class . '::edit');
+			$group->link('/[+:id]-[!:slug]', static::class . '::update');
 		}
 
 
@@ -34,7 +33,7 @@
 		/**
 		 *
 		 */
-		public function add(Layouts $layouts)
+		public function create(Layouts $layouts)
 		{
 			$entity  = $this->repo->create();
 			$layouts = $layouts->findAll();
@@ -53,10 +52,19 @@
 		/**
 		 *
 		 */
-		public function edit(Layouts $layouts)
+		public function remove()
+		{
+
+		}
+
+
+		/**
+		 *
+		 */
+		public function update(Layouts $layouts)
 		{
 			$id      = $this->request->params->get('id');
-			$name    = $this->request->params->get('name');
+			$slug    = $this->request->params->get('slug');
 			$entity  = $this->repo->findOneById($id);
  			$layouts = $layouts->findAll();
 

@@ -17,7 +17,7 @@
 		{
 			parent::route($group);
 
-			$group->link('/[+:id]-[!:name]', static::class . '::edit');
+			$group->link('/[+:id]-[!:slug]', static::class . '::update');
 		}
 
 		/**
@@ -33,7 +33,7 @@
 		/**
 		 *
 		 */
-		public function add()
+		public function create()
 		{
 			$entity = $this->repo->create();
 
@@ -51,10 +51,22 @@
 		/**
 		 *
 		 */
-		public function edit()
+		public function manage()
+		{
+			$page     = $this->request->params->get('page', '1');
+			$entities = $this->repo->build([], 15, $page);
+
+			return $this->render(get_defined_vars());
+		}
+
+
+		/**
+		 *
+		 */
+		public function update()
 		{
 			$id     = $this->request->params->get('id');
-			$name   = $this->request->params->get('name');
+			$slug   = $this->request->params->get('slug');
 			$entity = $this->repo->findOneById($id);
 
 			if (!$entity) {
@@ -75,10 +87,19 @@
 		/**
 		 *
 		 */
-		public function manage()
+		public function remove()
 		{
-			$page     = $this->request->params->get('page', '1');
-			$entities = $this->repo->build([], 15, $page);
+			$ids      = $this->request->params->get('ids', array());
+			$confirm  = $this->request->params->has('confirm');
+			$entities = $this->repo->findById($ids);
+
+			if ($confirm) {
+				$entities->map(function($entity) {
+					$this->repo->remove($entity);
+				});
+
+				return $this->router->redirect('./');
+			}
 
 			return $this->render(get_defined_vars());
 		}

@@ -9,8 +9,8 @@
 	<section class="span-11" role="main">
 		<form method="post" action="">
 			<div class="actions">
-				<a class="button-darkblue" href="?action=add"><span class="icon-plus">Add</span></a>
-				<button class="button-gray" type="submit" name="action" value="delete"><span class="icon-cross">Delete</span></button>
+				<a class="button-darkblue" href="?action=create"><span class="icon-plus">Create</span></a>
+				<button class="button-gray" type="submit" name="action" value="remove"><span class="icon-cross">Remove</span></button>
 			</div>
 
 			<?php if (!count($entities)) { ?>
@@ -20,29 +20,28 @@
 					</p>
 				</div>
 			<?php } else { ?>
-				<table class="flakes-table">
+				<table class="entities flakes-table">
 					<thead>
 						<tr>
-							<td><input type="checkbox" name="all" value="id[]" /></td>
-							<td>Title</td>
-							<td>Name</td>
-							<td>Description</td>
-							<td>Actions</td>
+							<th><input type="checkbox" name="all" value="ids[]" /></th>
+							<th>Title</th>
+							<th>Name</th>
+							<th>Actions</th>
 						</tr>
 					</thead>
 					<tbody>
 						<?php foreach ($entities as $entity) { ?>
-							<tr>
-								<td><input type="checkbox" name="id[]" value="<?= html::out($entity->getId()) ?>" /></td>
+							<tr data-tipped-options="showOn: 'click', hideOn: 'click'" title="<?= html::out($entity->getDescription()) ?>">
+								<td><input type="checkbox" name="ids[]" value="<?= html::out($entity->getId()) ?>" /></td>
 								<td><?= html::out($entity->getTitle()) ?></td>
 								<td><?= html::out($entity->getName()) ?></td>
-								<td><?= html::out($entity->getDescription()) ?></td>
-								<td>
-									<a class="icon-pencil"
-										href="<?= html::anchor('./[id]-[name]', [
-											'id' => $entity->getId(),
-											'name' => $entity->getName()
-										]) ?>">edit</a>
+								<td class="actions">
+									<a  class="icon-pencil"
+										title="update"
+										href="<?= html::anchor('./[id]-[ws:slug]', [
+											'id'   => $entity->getId(),
+											'slug' => $entity->getName()
+										]) ?>">update</a>
 								</td>
 							</tr>
 						<?php } ?>

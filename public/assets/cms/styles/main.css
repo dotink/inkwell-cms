@@ -83,35 +83,35 @@ li .icon:before {
 }
 
 .content .icon:before {
-	content: '\e923';
+	content: '\e923\A';
 }
 
 .pages .icon:before {
-	content: '\e925';
+	content: '\e925\A';
 }
 
 .partials .icon:before {
-	content: '\ea72';
+	content: '\ea72\A';
 }
 
 .layouts .icon:before {
-	content: '\e94c';
+	content: '\e94c\A';
 }
 
 .modules .icon:before {
-	content: '\ea58';
+	content: '\ea58\A';
 }
 
 .entities .icon:before {
-	content: '\e976';
+	content: '\e976\A';
 }
 
 .people .icon:before {
-	content: '\e972';
+	content: '\e972\A';
 }
 
 .organizations .icon:before {
-	content: '\e903';
+	content: '\e903\A';
 }
 
 [role=main] {
@@ -119,12 +119,33 @@ li .icon:before {
 	position: relative;
 }
 
-form .actions {
+form > .actions {
 	background-color: rgba(255,255,255,.90);
 	padding: 1rem 0;
 	margin-bottom: 1rem;
 	position: sticky;
 	top: 0;
+}
+
+td.actions a,
+td.actions a:before {
+	font-size: 28px;
+	line-height: 28px;
+	height: 28px;
+	display: block;
+	overflow: hidden;
+}
+
+table.entities th:first-child,
+table.entities td:first-child {
+	width: 40px;
+	text-align: center;
+}
+
+table.entities th:last-child,
+table.entities td:last-child {
+	min-width: 25%;
+	text-align: center;
 }
 
 a[class^="icon"]:before,
@@ -133,4 +154,11 @@ span[class^="icon"]:before,
 span[class*=" icon"]:before {
 	margin-right: .5rem;
 	margin-left: .5rem;
+}
+
+@media (max-width: 640px) {
+	[role=main] {
+		max-width: 95%;
+		margin: 0 2.5%;
+	}
 }

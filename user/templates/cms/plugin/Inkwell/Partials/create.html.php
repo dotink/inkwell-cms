@@ -1,6 +1,6 @@
 <?php namespace Inkwell\HTML;
 
-	$this['title'] = 'Add Layout';
+	$this['title'] = 'Create Partial';
 
 	$this->expand('content', 'master.html');
 
@@ -13,7 +13,7 @@
 				<a class="button-gray" href="./"><span class="icon-cancel-circle">Cancel</span></a>
 			</div>
 
-			<?php $this->inject('plugin/Inkwell/Layouts/-fields.html') ?>
+			<?php $this->inject('plugin/Inkwell/Partials/-fields.html') ?>
 
 		</form>
 	</section>

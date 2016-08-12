@@ -1,18 +1,21 @@
 <?php namespace Inkwell\CMS
 {
 	use Layouts;
+	use Partials;
 	use Contents;
 	use Twig_LoaderInterface;
+	use Dotink\Flourish;
 
 	class Loader implements Twig_LoaderInterface
 	{
 		/**
 		 *
 		 */
-		public function __construct(Contents $contents, Layouts $layouts)
+		public function __construct(Contents $contents, Layouts $layouts, Partials $partials)
 		{
 			$this->contents = $contents;
 			$this->layouts  = $layouts;
+			$this->partials = $partials;
 		}
 
 
@@ -23,8 +26,26 @@
 		{
 			if (is_numeric($name)) {
 				$content = $this->contents->findOneById($name);
+
 			} else {
-				$content = $this->layouts->findOneByName($name)->getContent();
+				if (preg_match('#^\((partials)\)\s(.*)$#', $name, $matches)) {
+					$repo = $matches[1];
+					$name = $matches[2];
+				} else {
+					$repo = 'layouts';
+				}
+
+				$entity = $this->$repo->findOneByName($name);
+
+				if (!$entity) {
+					throw new Flourish\ProgrammerException(
+						'Failed to load %s from %s',
+						$name,
+						$repo
+					);
+				}
+
+				$content = $entity->getContent();
 			}
 
 			return $content
@@ -47,7 +68,7 @@
 		 */
 		public function isFresh($name, $time)
 		{
-			return FALSE;
+			return TRUE;
 		}
 	}
 }
