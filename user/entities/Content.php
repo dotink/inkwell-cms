@@ -3,11 +3,11 @@
 	/**
 	 *
 	 */
-	class Person extends Base\Person
+	class Content extends Base\Content
 	{
 
 		/**
-		 * Instantiate a new Person
+		 * Instantiate a new Content
 		 */
 		public function __construct()
 		{

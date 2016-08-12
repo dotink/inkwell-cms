@@ -1,9 +1,16 @@
 <?php namespace Base {
 
 	use Doctrine\Common\Collections\ArrayCollection;
+	use Entity;
 
-	class Layout
+	class Layout extends Entity
 	{
+		/**
+		 * @access protected
+		 * @var Content
+		 */
+		protected $content;
+
 		/**
 		 * @access protected
 		 * @var string
@@ -26,12 +33,6 @@
 		 * @access protected
 		 * @var string
 		 */
-		protected $template;
-
-		/**
-		 * @access protected
-		 * @var string
-		 */
 		protected $title;
 
 
@@ -40,6 +41,18 @@
 		 */
 		public function __construct()
 		{
+		}
+
+
+		/**
+		 * Get the value of content
+		 *
+		 * @access public
+		 * @return Content The value of content
+		 */
+		public function getContent()
+		{
+			return $this->content;
 		}
 
 
@@ -80,18 +93,6 @@
 
 
 		/**
-		 * Get the value of template
-		 *
-		 * @access public
-		 * @return string The value of template
-		 */
-		public function getTemplate()
-		{
-			return $this->template;
-		}
-
-
-		/**
 		 * Get the value of title
 		 *
 		 * @access public
@@ -100,6 +101,21 @@
 		public function getTitle()
 		{
 			return $this->title;
+		}
+
+
+		/**
+		 * Set the value of content
+		 *
+		 * @access public
+		 * @param Content $value The value to set to content
+		 * @return Layout The object instance for method chaining
+		 */
+		public function setContent(\Content $value)
+		{
+			$this->content = $value;
+
+			return $this;
 		}
 
 
@@ -143,21 +159,6 @@
 		public function setName($value)
 		{
 			$this->name = $value;
-
-			return $this;
-		}
-
-
-		/**
-		 * Set the value of template
-		 *
-		 * @access public
-		 * @param string $value The value to set to template
-		 * @return Layout The object instance for method chaining
-		 */
-		public function setTemplate($value)
-		{
-			$this->template = $value;
 
 			return $this;
 		}

@@ -1,8 +1,9 @@
 <?php namespace Base {
 
 	use Doctrine\Common\Collections\ArrayCollection;
+	use Entity;
 
-	class Person
+	class Person extends Entity
 	{
 		/**
 		 * @access protected

@@ -1,9 +1,10 @@
-<?php namespace {
+<?php
 
-	class Page extends Base\Page implements Tenet\AccessInterface
+	/**
+	 *
+	 */
+	class Page extends Base\Page
 	{
-		use Tenet\Access\AccessibleTrait;
-
 		/**
 		 * Instantiate a new Page
 		 */
@@ -13,5 +14,3 @@
 		}
 
 	}
-
-}

@@ -1,9 +1,10 @@
-<?php namespace {
+<?php
 
-	class Layout extends Base\Layout implements Tenet\AccessInterface
+	/**
+	 *
+	 */
+	class Layout extends Base\Layout
 	{
-		use Tenet\Access\AccessibleTrait;
-
 		/**
 		 * Instantiate a new Layout
 		 */
@@ -11,5 +12,15 @@
 		{
 			return parent::__construct();
 		}
+
+
+		/**
+		 *
+		 */
+		public function fetchContent()
+		{
+			return $this->getContent()
+				? $this->getContent()->getData()
+				: NULL;
+		}
 	}
-}

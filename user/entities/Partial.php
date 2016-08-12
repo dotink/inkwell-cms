@@ -1,4 +1,4 @@
-<?php namespace {
+<?php
 
 	class Partial extends Base\Partial
 	{
@@ -11,6 +11,14 @@
 			return parent::__construct();
 		}
 
-	}
 
-}
+		/**
+		 *
+		 */
+		public function fetchContent()
+		{
+			return $this->getContent()
+				? $this->getContent()->getData()
+				: NULL;
+		}
+	}

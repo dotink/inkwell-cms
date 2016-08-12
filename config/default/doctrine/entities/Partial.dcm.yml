@@ -21,6 +21,11 @@ Partial:
       column: description
       type: text
       nullable: true
-    template:
-      column: template
-      type: text
+
+  oneToOne:
+    content:
+      targetEntity: Content
+      cascade: [persist,remove]
+      joinColumn:
+        name: content
+        referencedColumnName: id

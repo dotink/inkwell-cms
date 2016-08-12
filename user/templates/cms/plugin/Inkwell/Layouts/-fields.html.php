@@ -24,8 +24,8 @@
 		<div data-row-span="1">
 			<div data-field-span="1">
 				<label>Template</label>
-				<textarea class="ace" name="entity[template]" cols="1" rows="30" data-lang="html"><?=
-					html::out($entity->getTemplate())
+				<textarea class="ace" name="entity[content][data]" cols="1" rows="30" data-lang="html"><?=
+					html::out($entity->fetchContent())
 				?></textarea>
 			</div>
 		</div>

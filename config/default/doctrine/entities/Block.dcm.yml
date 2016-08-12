@@ -32,9 +32,3 @@ Block:
         name: category
         referencedColumnName: name
         onDelete: RESTRICT
-    routine:
-      targetEntity: BlockRoutine
-      joinColumn:
-        name: routine
-        referencedColumnName: class
-        onDelete: RESTRICT

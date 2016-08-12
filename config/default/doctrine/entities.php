@@ -19,7 +19,7 @@
 		// For purposes of code generation, base classes are created and can extend an initial
 		// root class.
 
-		'root_class' => NULL,
+		'root_class' => 'Entity',
 
 		// For purposes of code generation, base classes are created and then extended, this
 		// namespace will be spliced into the namespace such that Example\Whatever will become

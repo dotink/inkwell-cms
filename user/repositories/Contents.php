@@ -2,7 +2,7 @@
 
 	use Inkwell\Doctrine\Repository;
 
-	class BlockRoutines extends Repository
+	class Contents extends Repository
 	{
 	}
 

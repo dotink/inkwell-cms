@@ -1,0 +1,16 @@
+Content:
+  type: entity
+  table: contents
+  repositoryClass: Contents
+
+  id:
+    id:
+      column: id
+      type: integer
+      generator:
+        strategy: IDENTITY
+
+  fields:
+    data:
+      column: data
+      type: text
