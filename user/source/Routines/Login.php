@@ -34,9 +34,9 @@
 		/**
 		 *
 		 */
-		public function __invoke(Request $request, Response $response, Collection $data, Block $block)
+		public function __invoke(Request $request, Response $response, Collection $data, Module $module)
 		{
-			$settings    = $block->getSettings();
+			$settings    = $module->getSettings();
 			$login_param = $this->settings->get('login_param');
 			$pass_param  = $this->settings->get('pass_param');
 			$login_page  = $this->pages->findOneById($this->settings->get('login_page'));

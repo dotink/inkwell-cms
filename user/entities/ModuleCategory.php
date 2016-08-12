@@ -1,10 +1,10 @@
 <?php namespace {
 
-	class Block extends Base\Block
+	class ModuleCategory extends Base\ModuleCategory
 	{
 
 		/**
-		 * Instantiate a new Block
+		 * Instantiate a new ModuleCategory
 		 */
 		public function __construct()
 		{

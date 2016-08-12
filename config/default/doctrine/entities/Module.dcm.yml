@@ -1,7 +1,7 @@
-Block:
+Module:
   type: entity
-  table: blocks
-  repositoryClass: Blocks
+  table: modules
+  repositoryClass: Modules
 
   id:
     id:
@@ -27,7 +27,7 @@ Block:
 
   manyToOne:
     category:
-      targetEntity: BlockCategory
+      targetEntity: ModuleCategory
       joinColumn:
         name: category
         referencedColumnName: name

@@ -31,8 +31,8 @@
 			$data->set('this.params', $this->request->params->get());
 
 /*
-			foreach ($page->getPageBlocks() as $page_block) {
-				$routine = $page_block->getRoutine();
+			foreach ($page->getPageModules() as $page_module) {
+				$routine = $page_module->getRoutine();
 
 				if (!$routine || !($routine->getClass() instanceof Routine)) {
 					continue;
@@ -42,7 +42,7 @@
 					$this->request,
 					$this->response,
 					$collection,
-					$page_block
+					$page_module
 				);
 
 				if ($response->getStatus() != HTTP\OK) {

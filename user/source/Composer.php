@@ -18,7 +18,7 @@
 		/**
 		 *
 		 */
-		public function addBlock(PageBlock $block, Collection $data)
+		public function addModule(PageModule $module, Collection $data)
 		{
 
 		}

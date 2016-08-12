@@ -3,7 +3,7 @@
 	use Doctrine\Common\Collections\ArrayCollection;
 	use Entity;
 
-	class BlockCategory extends Entity
+	class ModuleCategory extends Entity
 	{
 		/**
 		 * @access protected
@@ -13,7 +13,7 @@
 
 
 		/**
-		 * Instantiate a new BlockCategory
+		 * Instantiate a new ModuleCategory
 		 */
 		public function __construct()
 		{
@@ -37,7 +37,7 @@
 		 *
 		 * @access public
 		 * @param string $value The value to set to name
-		 * @return BlockCategory The object instance for method chaining
+		 * @return ModuleCategory The object instance for method chaining
 		 */
 		public function setName($value)
 		{

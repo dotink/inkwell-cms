@@ -9,6 +9,6 @@
 	 */
 	interface Routine
 	{
-		public function __invoke(Request $request, Response $response, Collection $data, PageBlock $page_block);
+		public function __invoke(Request $request, Response $response, Collection $data, PageModule $page_module);
 	}
 }

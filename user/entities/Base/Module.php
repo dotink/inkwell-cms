@@ -3,11 +3,11 @@
 	use Doctrine\Common\Collections\ArrayCollection;
 	use Entity;
 
-	class Block extends Entity
+	class Module extends Entity
 	{
 		/**
 		 * @access protected
-		 * @var BlockCategory
+		 * @var ModuleCategory
 		 */
 		protected $category;
 
@@ -31,7 +31,7 @@
 
 		/**
 		 * @access protected
-		 * @var BlockRoutine
+		 * @var ModuleRoutine
 		 */
 		protected $routine;
 
@@ -49,7 +49,7 @@
 
 
 		/**
-		 * Instantiate a new Block
+		 * Instantiate a new Module
 		 */
 		public function __construct()
 		{
@@ -60,7 +60,7 @@
 		 * Get the value of category
 		 *
 		 * @access public
-		 * @return BlockCategory The value of category
+		 * @return ModuleCategory The value of category
 		 */
 		public function getCategory()
 		{
@@ -108,7 +108,7 @@
 		 * Get the value of routine
 		 *
 		 * @access public
-		 * @return BlockRoutine The value of routine
+		 * @return ModuleRoutine The value of routine
 		 */
 		public function getRoutine()
 		{
@@ -144,10 +144,10 @@
 		 * Set the value of category
 		 *
 		 * @access public
-		 * @param BlockCategory $value The value to set to category
-		 * @return Block The object instance for method chaining
+		 * @param ModuleCategory $value The value to set to category
+		 * @return Module The object instance for method chaining
 		 */
-		public function setCategory(\BlockCategory $value)
+		public function setCategory(\ModuleCategory $value)
 		{
 			$this->category = $value;
 
@@ -160,7 +160,7 @@
 		 *
 		 * @access public
 		 * @param string $value The value to set to description
-		 * @return Block The object instance for method chaining
+		 * @return Module The object instance for method chaining
 		 */
 		public function setDescription($value)
 		{
@@ -175,7 +175,7 @@
 		 *
 		 * @access public
 		 * @param integer $value The value to set to id
-		 * @return Block The object instance for method chaining
+		 * @return Module The object instance for method chaining
 		 */
 		public function setId($value)
 		{
@@ -190,7 +190,7 @@
 		 *
 		 * @access public
 		 * @param string $value The value to set to name
-		 * @return Block The object instance for method chaining
+		 * @return Module The object instance for method chaining
 		 */
 		public function setName($value)
 		{
@@ -204,10 +204,10 @@
 		 * Set the value of routine
 		 *
 		 * @access public
-		 * @param BlockRoutine $value The value to set to routine
-		 * @return Block The object instance for method chaining
+		 * @param ModuleRoutine $value The value to set to routine
+		 * @return Module The object instance for method chaining
 		 */
-		public function setRoutine(\BlockRoutine $value)
+		public function setRoutine(\ModuleRoutine $value)
 		{
 			$this->routine = $value;
 
@@ -220,7 +220,7 @@
 		 *
 		 * @access public
 		 * @param string $value The value to set to template
-		 * @return Block The object instance for method chaining
+		 * @return Module The object instance for method chaining
 		 */
 		public function setTemplate($value)
 		{
@@ -235,7 +235,7 @@
 		 *
 		 * @access public
 		 * @param string $value The value to set to title
-		 * @return Block The object instance for method chaining
+		 * @return Module The object instance for method chaining
 		 */
 		public function setTitle($value)
 		{

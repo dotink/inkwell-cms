@@ -2,7 +2,7 @@
 {
 	use Inkwell\CMS;
 
-	class Blocks extends AbstractPlugin
+	class Modules extends AbstractPlugin
 	{
 		static protected $description = 'Manage partial content that can be placed in layouts';
 		static protected $version = '1.0';

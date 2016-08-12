@@ -2,7 +2,7 @@
 
 	use Inkwell\Doctrine\Repository;
 
-	class BlockCategories extends Repository
+	class Modules extends Repository
 	{
 	}
 
