@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "879c1bf85e52b4db67a756fe79d583e4",
-    "content-hash": "4cbfe736daedb237736c87697e3cc1ef",
+    "hash": "6c88729fbec1ed700ba30091d699a701",
+    "content-hash": "06a5cd1900b693f5eb3cd0c2e42e55b9",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -839,21 +839,21 @@
         },
         {
             "name": "dotink/inkwell-components",
-            "version": "1.0.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:dotink/inkwell-components.git",
-                "reference": "ae7b845fe16ee9489c7625f2b5485151869a4cc7"
+                "reference": "d30007396bb814a2cf582dc0d770c7f65f5081d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dotink/inkwell-components/zipball/ae7b845fe16ee9489c7625f2b5485151869a4cc7",
-                "reference": "ae7b845fe16ee9489c7625f2b5485151869a4cc7",
+                "url": "https://api.github.com/repos/dotink/inkwell-components/zipball/d30007396bb814a2cf582dc0d770c7f65f5081d4",
+                "reference": "d30007396bb814a2cf582dc0d770c7f65f5081d4",
                 "shasum": ""
             },
             "require": {
                 "dotink/inkwell-console": "^1.0.0",
-                "dotink/inkwell-controller": "^1.0.0",
+                "dotink/inkwell-controller": "^2.0.0",
                 "dotink/inkwell-html": "^1.0.0",
                 "dotink/inkwell-routing": "^1.0.0",
                 "dotink/inkwell-view": "^1.0.0",
@@ -874,7 +874,7 @@
             "keywords": [
                 "components"
             ],
-            "time": "2016-06-03 06:02:14"
+            "time": "2016-08-12 04:03:53"
         },
         {
             "name": "dotink/inkwell-console",
@@ -930,16 +930,16 @@
         },
         {
             "name": "dotink/inkwell-controller",
-            "version": "1.0.0",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:dotink/inkwell-controller.git",
-                "reference": "c7d843cc42b544650cc31be39865c548245deef2"
+                "reference": "b0620876bbcef6b1c768645ee56c06ff8148f2ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dotink/inkwell-controller/zipball/c7d843cc42b544650cc31be39865c548245deef2",
-                "reference": "c7d843cc42b544650cc31be39865c548245deef2",
+                "url": "https://api.github.com/repos/dotink/inkwell-controller/zipball/b0620876bbcef6b1c768645ee56c06ff8148f2ef",
+                "reference": "b0620876bbcef6b1c768645ee56c06ff8148f2ef",
                 "shasum": ""
             },
             "require": {
@@ -980,7 +980,7 @@
                 "controllers",
                 "routing"
             ],
-            "time": "2016-06-03 05:33:38"
+            "time": "2016-08-12 03:58:52"
         },
         {
             "name": "dotink/inkwell-core",
@@ -1040,12 +1040,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:dotink/inkwell-doctrine.git",
-                "reference": "6c6e160abd743f1954d6326c8bc22001dbc904c2"
+                "reference": "9839038b5bcd78c9cb208fd75b015ca50f3717ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dotink/inkwell-doctrine/zipball/6c6e160abd743f1954d6326c8bc22001dbc904c2",
-                "reference": "6c6e160abd743f1954d6326c8bc22001dbc904c2",
+                "url": "https://api.github.com/repos/dotink/inkwell-doctrine/zipball/9839038b5bcd78c9cb208fd75b015ca50f3717ee",
+                "reference": "9839038b5bcd78c9cb208fd75b015ca50f3717ee",
                 "shasum": ""
             },
             "require": {
@@ -1085,7 +1085,7 @@
                 "doctrine",
                 "orm"
             ],
-            "time": "2016-08-11 06:36:48"
+            "time": "2016-08-12 04:01:10"
         },
         {
             "name": "dotink/inkwell-events",
