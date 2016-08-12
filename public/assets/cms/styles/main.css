@@ -43,7 +43,7 @@ nav li {
 	margin: 0;
 }
 
-nav.modules {
+nav.components {
 	background-color: #2d477b;
 	padding: .5rem 0 !important;
 }

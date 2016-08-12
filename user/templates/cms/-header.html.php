@@ -3,7 +3,7 @@
 	extract($this->get());
 
 	?>
-	<nav class="modules span-12 grid-12 gutter-80">
+	<nav class="components span-12 grid-12 gutter-80">
 		<a class="logo span-1" href="<?= $registry->getPluginBaseUrl() ?>">Logo</a>
 		<ul class="span-11">
 			<?php foreach ($registry->getPluginMap() as $module => $tools) { ?>
