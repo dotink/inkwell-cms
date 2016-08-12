@@ -1,7 +1,8 @@
 <?php namespace Inkwell\CMS\Routine
 {
 	use Inkwell\Auth;
-	use Flourish\Messaging;
+	use Dotink\Flourish\Messaging;
+	use Dotink\Flourish\Collection;
 	use Pages;
 
 	/**
@@ -9,6 +10,16 @@
 	 */
 	class LoginRoutine extends Routine
 	{
+		static public function getSettings()
+		{
+			return [
+				'login_param' => ['string', 'login'],
+				'pass_param'  => ['string', 'password'],
+				'login_page'  => ['page',   ''],
+				'on_success'  => ['page',   '']
+			];
+		}
+
 		/**
 		 *
 		 */
@@ -23,7 +34,7 @@
 		/**
 		 *
 		 */
-		public function init(Request $request, Response $response, Collection $data, Block $block)
+		public function __invoke(Request $request, Response $response, Collection $data, Block $block)
 		{
 			$settings    = $block->getSettings();
 			$login_param = $this->settings->get('login_param');
@@ -36,9 +47,9 @@
 			if ($this->auth->login($login, $pass)) {
 				$this->flash->record('success', 'You have successfully logged in.');
 				$response->setStatus(HTTP\REDIRECT_SEE_OTHER)->headers->set(
-					'Location', $on_success
-						? $on_success->getUrl()
-						: $request->getUrl()
+					'Location', !$on_success
+						? $request->getUrl()->modify('/')
+						: $on_success->getUrl()
 				);
 
 			} else {

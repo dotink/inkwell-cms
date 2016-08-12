@@ -2,26 +2,34 @@
 {
 	use Page;
 	use Twig_Environment;
+	use Dotink\Flourish\Collection;
 
 	class Composer
 	{
 		/**
 		 *
 		 */
-		public function __construct(Twig_Environment $layout)
+		public function __construct(Twig_Environment $twig)
 		{
-			$this->layout = $layout;
+			$this->twig = $twig;
 		}
 
 
 		/**
 		 *
 		 */
-		public function render(Page $page, $params = array())
+		public function addBlock(PageBlock $block, Collection $data)
 		{
-			return $this->layout->render($page->getLayout()->getName(), [
-				'this' => $params
-			]);
+
+		}
+
+
+		/**
+		 *
+		 */
+		public function render(Page $page, Collection $data)
+		{
+			return $this->twig->render($page->getLayout()->getContent()->getId(), $data->get());
 		}
 	}
 }
