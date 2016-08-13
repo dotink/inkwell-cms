@@ -11,9 +11,21 @@ html.editor #viewpane {
 	height: 100%;
 }
 
+h5 {
+	font-size: 1.6rem;
+	margin: .6rem 0 .4rem 0;
+}
+
+h6 {
+	font-size: 1.4rem;
+	margin: .8rem 0 .4rem 0;
+}
+
 #modules {
 	background-color: #fff;
 	position: absolute;
+	margin-top: 1rem;
+	padding: 1rem;
 	width: 70%;
 	height: 80%;
 	left: 15%;
@@ -24,4 +36,24 @@ html.editor #viewpane {
 
 #modules.open {
 	top: 10%;
+}
+
+#modules .views {
+	position: relative;
+	overflow: hidden;
+}
+
+#modules .view {
+	margin-top: 100%;
+	transition: 500ms margin-top;
+	z-index: 5;
+}
+
+#modules .view.active {
+	margin-top: 0;
+	z-index: 10;
+}
+
+#modules .module .content {
+	display: none;
 }

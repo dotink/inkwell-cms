@@ -1141,16 +1141,16 @@
         },
         {
             "name": "dotink/inkwell-html",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:dotink/inkwell-html.git",
-                "reference": "29d4dafcd0bba4ae978931a347073515e1318eaf"
+                "reference": "c842dfb3eb873275d8a0dfe3ae2d7e789c455411"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dotink/inkwell-html/zipball/29d4dafcd0bba4ae978931a347073515e1318eaf",
-                "reference": "29d4dafcd0bba4ae978931a347073515e1318eaf",
+                "url": "https://api.github.com/repos/dotink/inkwell-html/zipball/c842dfb3eb873275d8a0dfe3ae2d7e789c455411",
+                "reference": "c842dfb3eb873275d8a0dfe3ae2d7e789c455411",
                 "shasum": ""
             },
             "require": {
@@ -1189,7 +1189,7 @@
                 "html",
                 "templating"
             ],
-            "time": "2016-08-11 04:47:56"
+            "time": "2016-08-13 23:05:33"
         },
         {
             "name": "dotink/inkwell-http",

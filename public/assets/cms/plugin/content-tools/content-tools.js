@@ -8361,14 +8361,21 @@
       if (regionQuery !== void 0) {
         this._regionQuery = regionQuery;
       }
-      if (this._regionQuery.length > 0 && this._regionQuery[0].nodeType === Node.ELEMENT_NODE) {
-        this._domRegions = this._regionQuery;
+
+      if (this._regionQuery.length > 0) {
+          if (this._regionQuery[0].nodeType === Node.ELEMENT_NODE) {
+            this._domRegions = this._regionQuery;
+          } else {
+            this._domRegions = document.querySelectorAll(this._regionQuery);
+          }
       } else {
-        this._domRegions = document.querySelectorAll(this._regionQuery);
+          this._domRegions = [];
       }
+
       if (this._state === 'editing') {
         this._initRegions();
       }
+
       if (this._ignition) {
         if (this._domRegions.length) {
           return this._ignition.show();

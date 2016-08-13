@@ -7,22 +7,128 @@ Inkwell.ModulesDialog = Vue.extend({
 
 	data: function() {
 		return {
+			/**
+			 *
+			 */
 			el: null,
+
+			/**
+			 *
+			 */
 			doc: null,
+
+			/**
+			 *
+			 */
 			modal: null,
+
+			/**
+			 *
+			 */
 			editor: null,
+
+			/**
+			 *
+			 */
 			nodeCount: 0,
-			nodeSelector: '*[data-node]',
-			nodeNameAttr: 'data-name',
+
+			/**
+			 *
+			 */
+			containerSelector: '[data-container]',
+
+			/**
+			 *
+			 */
 			focusedContainer: null,
+
+			/**
+			 *
+			 */
+			nodeSelector: '*[data-node]',
+
+			/**
+			 *
+			 */
+			nodeNameAttr: 'data-name',
+
+			/**
+			 *
+			 */
 			title: 'Modules',
+
+			/**
+			 *
+			 */
+			activeModules: []
 		};
 	},
 
 	methods: {
 
+
 		/**
 		 *
+		 */
+		appendModule: function($module) {
+			var $pageModule = $('<div data-module>' + $module.data('content') + '</div>');
+
+			$pageModule
+				.data('module', $module.id)
+				.find(this.nodeSelector)
+				.prop('controller', this)
+				.each(function() {
+					this.controller.assignNodeId($(this));
+				})
+			;
+
+			$pageModule.insertBefore(this.focusedContainer.find('.inkwell-controls'));
+
+			this.sync();
+			this.hide();
+		},
+
+
+		/**
+		 * Assign a node ID to a node based on the highest current node count
+		 */
+		assignNodeId: function($node) {
+			$node.attr(this.nodeNameAttr, 'node-' + ++this.nodeCount);
+		},
+
+
+		/**
+		 * Initialized containers and add controls to each one.
+		 */
+		createControls: function(controls) {
+			var $containers = this.doc.find(this.containerSelector);
+			var $controls   = $('<div class="inkwell-controls">');
+
+			//
+			// Focus a container every time we click on one.  The click is actually for the button
+			// but it should propagate.
+			//
+
+			$containers
+				.prop('controller', this)
+				.on('click', function() {
+					this.controller.focusedContainer = $(this);
+				});
+			;
+
+			for (var i in controls) {
+				$controls.append(
+					$(controls[i].html)
+						.prop('controller', this)
+						.on('click', controls[i].callback)
+				);
+			}
+
+			$containers.append($controls);
+		},
+
+		/**
+		 * Hide the modules dialog completely
 		 */
 		hide: function() {
 			if (this.el.hasClass('open')) {
@@ -31,6 +137,7 @@ Inkwell.ModulesDialog = Vue.extend({
 
 			this.modal.hide();
 		},
+
 
 		/**
 		 *
@@ -52,55 +159,19 @@ Inkwell.ModulesDialog = Vue.extend({
 			}
 		},
 
-		createControls: function(controllerName, controls) {
-			var $containers = this.doc.find('[data-container]');
 
-			$containers
-				.prop(controllerName, this)
-				.on('click', function() {
-					this[controllerName].focusedContainer = $(this);
-				});
-			;
-
-			for (var i in controls) {
-				$containers.append(
-					$(controls[i].html)
-						.prop(controllerName, this)
-						.on('click', controls[i].callback)
-				);
-			}
-		},
-
-		assignNodeId: function($node) {
-			$node.attr(this.nodeNameAttr, 'node-' + ++this.nodeCount);
-		},
-
-		appendModule: function($module) {
-			var $content    = $module.find('.content');
-			var $pageModule = $('<div data-module>' + $content.text() + '</div>');
-
-			$pageModule
-				.find(this.nodeSelector)
-				.prop('modulesDialog', this)
-				.each(function() {
-					this.modulesDialog.assignNodeId($(this));
-				})
-			;
-
-			this.focusedContainer.prepend($pageModule);
-			this.sync();
-			this.hide();
-		},
-
+		/**
+		 *
+		 */
 		sync: function() {
 			var $nodes = this.doc.find(this.nodeSelector);
 
 			if (this.editor.getState() == 'dormant') {
 				if ($nodes.length) {
 					$nodes
-						.prop('modulesDialog', this)
+						.prop('controller', this)
 						.each(function() {
-							this.modulesDialog.assignNodeId($(this));
+							this.controller.assignNodeId($(this));
 						})
 					;
 
@@ -116,9 +187,30 @@ Inkwell.ModulesDialog = Vue.extend({
 
 
 			}
+		},
+
+		insert: function() {
+			this.show('insert');
+		},
+
+		manage: function() {
+			this.activeModules = [];
+
+			this.focusedContainer.find('[data-module]').each(function() {
+				this.controller.activeModules.push(this.data);
+			})
+
+			this.show('manage');
+		},
+
+		settings: function() {
+
 		}
 	},
 
+	/**
+	 *
+	 */
 	created: function() {
 		if (this.jQuery == undefined) {
 			console.error('Modules Vue requires you to define jQuery');
@@ -131,25 +223,52 @@ Inkwell.ModulesDialog = Vue.extend({
 		this.modal  = new this.contentTools.ModalUI(false, true);
 		this.editor = this.contentTools.EditorApp.get();
 
-		this.createControls('modulesDialog', [
-			{html: '<a>Add Modules</a>', callback: function(e) {
-				this.modulesDialog.show('selection');
-			}}
+		this.createControls([
+			{html: '<a data-control="insert">Add Modules</a>', callback: function(e) {
+				this.controller.insert();
+			}},
+			{html: '<a data-control="manage">Add Modules</a>', callback: function(e) {
+				this.controller.manage();
+			}},
 		]);
 	},
 
+	/**
+	 *
+	 */
 	ready: function() {
 		this.el = this.jQuery(this.$el);
 
-		this.el.find('.module').prop('modulesDialog', this).on('click', function(e) {
-			this.modulesDialog.appendModule($(this));
+		this.el.find('.module').prop('controller', this).on('click', function(e) {
+			this.controller.appendModule($(this));
 		});
-
 
 		this.editor.attach(this.modal);
 		this.sync();
 	}
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 $(function() {

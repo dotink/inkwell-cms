@@ -1,0 +1,30 @@
+.inkwell-controls {
+	text-align: center;
+	border-top: solid 1px #999;
+	background-color: rgba(255,255,255,.25);
+	padding: 1rem;
+}
+
+.inkwell-controls [data-control] {
+	display: inline-block;
+	color: #fff;
+	border-radius: 30px;
+	height: 48px;
+	width: 48px;
+	text-indent: -5000px;
+	overflow: hidden;
+	background-size: 24px 24px;
+	margin: 0 .5rem;
+	cursor: pointer;
+}
+
+.inkwell-controls [data-control=insert] {
+	background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0ZWQgYnkgSWNvTW9vbi5pbyAtLT4KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KPHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0zMSAxMmgtMTF2LTExYzAtMC41NTItMC40NDgtMS0xLTFoLTZjLTAuNTUyIDAtMSAwLjQ0OC0xIDF2MTFoLTExYy0wLjU1MiAwLTEgMC40NDgtMSAxdjZjMCAwLjU1MiAwLjQ0OCAxIDEgMWgxMXYxMWMwIDAuNTUyIDAuNDQ4IDEgMSAxaDZjMC41NTIgMCAxLTAuNDQ4IDEtMXYtMTFoMTFjMC41NTIgMCAxLTAuNDQ4IDEtMXYtNmMwLTAuNTUyLTAuNDQ4LTEtMS0xeiI+PC9wYXRoPgo8L3N2Zz4=') no-repeat center center;
+	background-color: #27ae60;
+}
+
+.inkwell-controls [data-control=manage] {
+	background:
+	url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0ZWQgYnkgSWNvTW9vbi5pbyAtLT4KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KPHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0zMiAxMGwtMTYtOC0xNiA4IDE2IDggMTYtOHpNMTYgNC42NTVsMTAuNjg5IDUuMzQ1LTEwLjY4OSA1LjM0NS0xMC42ODktNS4zNDUgMTAuNjg5LTUuMzQ1ek0yOC43OTUgMTQuMzk4bDMuMjA1IDEuNjAyLTE2IDgtMTYtOCAzLjIwNS0xLjYwMiAxMi43OTUgNi4zOTh6TTI4Ljc5NSAyMC4zOThsMy4yMDUgMS42MDItMTYgOC0xNi04IDMuMjA1LTEuNjAyIDEyLjc5NSA2LjM5OHoiPjwvcGF0aD4KPC9zdmc+') no-repeat center center;
+	background-color: #2980b9;
+}
