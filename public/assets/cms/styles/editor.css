@@ -1,0 +1,27 @@
+html.editor,
+html.editor body {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+html.editor #viewpane {
+	border: none;
+	width: 100%;
+	height: 100%;
+}
+
+#modules {
+	background-color: #fff;
+	position: absolute;
+	width: 70%;
+	height: 80%;
+	left: 15%;
+	top: 100%;
+	transition: 500ms top;
+	z-index: 20000;
+}
+
+#modules.open {
+	top: 10%;
+}

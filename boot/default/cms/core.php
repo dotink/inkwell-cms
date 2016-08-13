@@ -2,6 +2,10 @@
 
 	return Affinity\Action::create(['routing'], function($app, $broker) {
 
+		if ($app->checkSAPI(['cli'])) {
+			return;
+		}
+
 		$broker->prepare('Twig_Environment', function($twig, $broker) {
 			$twig->addTokenParser($broker->make('Inkwell\CMS\Twig\IncludeTokenParser'));
 		});

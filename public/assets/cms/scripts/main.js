@@ -20,5 +20,9 @@ $(function() {
 		});
 	});
 
+	$('table label, table .actions a').click(function(e) {
+		e.stopPropagation();
+	});
+
 	Tipped.create('*[title]');
 });

@@ -21,14 +21,15 @@ Module:
       column: description
       type: text
       nullable: true
-    template:
-      column: template
+    type:
+      column: type
       type: text
+      nullable: true
 
-  manyToOne:
-    category:
-      targetEntity: ModuleCategory
+  oneToOne:
+    content:
+      targetEntity: Content
+      cascade: [persist,remove]
       joinColumn:
-        name: category
-        referencedColumnName: name
-        onDelete: RESTRICT
+        name: content
+        referencedColumnName: id

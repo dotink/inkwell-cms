@@ -4,8 +4,8 @@
 
 	?>
 	<nav class="components span-12 grid-12 gutter-80">
-		<a class="logo span-1" href="<?= $registry->getPluginBaseUrl() ?>">Logo</a>
-		<ul class="span-11">
+		<a class="logo span-2" href="<?= $registry->getPluginBaseUrl() ?>">Logo</a>
+		<ul class="span-10">
 			<?php foreach ($registry->getPluginMap() as $module => $tools) { ?>
 				<li class="<?= html::out($module) ?>">
 					<a class="icon" href="<?= $registry->anchor(array_values($tools)[0]) ?>"><?= html::out(ucwords($module)) ?></a>
@@ -14,7 +14,7 @@
 		</ul>
 	</nav>
 
-	<nav class="tools span-1">
+	<nav class="tools span-2">
 		<ul>
 			<?php foreach ($registry->getPluginMap() as $module => $tools) { ?>
 				<?php if(in_array(get_class($plugin), $tools)) { ?>

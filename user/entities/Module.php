@@ -11,6 +11,15 @@
 			return parent::__construct();
 		}
 
-	}
 
+		/**
+		 *
+		 */
+		public function fetchContent()
+		{
+			return $this->getContent()
+				? $this->getContent()->getData()
+				: NULL;
+		}
+	}
 }

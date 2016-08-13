@@ -46,6 +46,7 @@ nav li {
 nav.components {
 	background-color: #2d477b;
 	padding: .5rem 0 !important;
+	text-align: center;
 }
 
 nav.tools,
@@ -127,8 +128,8 @@ form > .actions {
 	top: 0;
 }
 
-td.actions a,
-td.actions a:before {
+table.entities td.actions a,
+table.entities td.actions a:before {
 	font-size: 28px;
 	line-height: 28px;
 	height: 28px;
@@ -139,6 +140,7 @@ td.actions a:before {
 table.entities th:first-child,
 table.entities td:first-child {
 	width: 40px;
+	padding: 0;
 	text-align: center;
 }
 
@@ -146,6 +148,38 @@ table.entities th:last-child,
 table.entities td:last-child {
 	min-width: 25%;
 	text-align: center;
+}
+
+table.entities label {
+	display: block;
+	width: 100%;
+	padding: .5rem 0;
+}
+
+
+table a[class^="icon"],
+table a[class*=" icon"],
+table a[class^="icon"]:before,
+table a[class*=" icon"]:before {
+	font-size: 1.25rem;
+	line-height: 1.25rem;
+	height: 1.25rem;
+	width: 40px;;
+	display: block;
+	overflow: hidden;
+	text-align: center;
+	margin: 0;
+}
+
+table a[class^="icon"],
+table a[class*=" icon"] {
+	float: left;
+}
+
+
+.entities .module {
+	border: solid 1px #444;
+	padding: 1rem;
 }
 
 a[class^="icon"]:before,

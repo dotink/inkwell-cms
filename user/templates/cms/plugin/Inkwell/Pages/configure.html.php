@@ -1,6 +1,6 @@
 <?php namespace Inkwell\HTML;
 
-	$this['title'] = 'Update Partial';
+	$this['title'] = 'Update Page';
 
 	$this->expand('content', 'master.html');
 
@@ -12,6 +12,6 @@
 			<a class="button-gray" href="./"><span class="icon-cancel-circle">Cancel</span></a>
 		</div>
 
-		<?php $this->inject('plugin/Inkwell/Partials/-fields.html') ?>
+		<?php $this->inject('plugin/Inkwell/Pages/-fields.html') ?>
 
 	</form>

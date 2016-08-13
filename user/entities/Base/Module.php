@@ -7,9 +7,9 @@
 	{
 		/**
 		 * @access protected
-		 * @var ModuleCategory
+		 * @var Content
 		 */
-		protected $category;
+		protected $content;
 
 		/**
 		 * @access protected
@@ -33,13 +33,13 @@
 		 * @access protected
 		 * @var string
 		 */
-		protected $template;
+		protected $title;
 
 		/**
 		 * @access protected
 		 * @var string
 		 */
-		protected $title;
+		protected $type;
 
 
 		/**
@@ -51,14 +51,14 @@
 
 
 		/**
-		 * Get the value of category
+		 * Get the value of content
 		 *
 		 * @access public
-		 * @return ModuleCategory The value of category
+		 * @return Content The value of content
 		 */
-		public function getCategory()
+		public function getContent()
 		{
-			return $this->category;
+			return $this->content;
 		}
 
 
@@ -99,18 +99,6 @@
 
 
 		/**
-		 * Get the value of template
-		 *
-		 * @access public
-		 * @return string The value of template
-		 */
-		public function getTemplate()
-		{
-			return $this->template;
-		}
-
-
-		/**
 		 * Get the value of title
 		 *
 		 * @access public
@@ -123,15 +111,27 @@
 
 
 		/**
-		 * Set the value of category
+		 * Get the value of type
 		 *
 		 * @access public
-		 * @param ModuleCategory $value The value to set to category
+		 * @return string The value of type
+		 */
+		public function getType()
+		{
+			return $this->type;
+		}
+
+
+		/**
+		 * Set the value of content
+		 *
+		 * @access public
+		 * @param Content $value The value to set to content
 		 * @return Module The object instance for method chaining
 		 */
-		public function setCategory(\ModuleCategory $value)
+		public function setContent(\Content $value)
 		{
-			$this->category = $value;
+			$this->content = $value;
 
 			return $this;
 		}
@@ -183,21 +183,6 @@
 
 
 		/**
-		 * Set the value of template
-		 *
-		 * @access public
-		 * @param string $value The value to set to template
-		 * @return Module The object instance for method chaining
-		 */
-		public function setTemplate($value)
-		{
-			$this->template = $value;
-
-			return $this;
-		}
-
-
-		/**
 		 * Set the value of title
 		 *
 		 * @access public
@@ -207,6 +192,21 @@
 		public function setTitle($value)
 		{
 			$this->title = $value;
+
+			return $this;
+		}
+
+
+		/**
+		 * Set the value of type
+		 *
+		 * @access public
+		 * @param string $value The value to set to type
+		 * @return Module The object instance for method chaining
+		 */
+		public function setType($value)
+		{
+			$this->type = $value;
 
 			return $this;
 		}

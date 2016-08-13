@@ -29,7 +29,8 @@
 		"dotink/inkwell-components": "^2.0.0",
 		"dotink/inkwell-doctrine": "dev-master as 1.0.0",
 		"imarc/tenet": "dev-master as 2.0",
-		"twig/twig": "^1.0.0"
+		"twig/twig": "^1.0.0",
+		"wa72/htmlpagedom": "^1.2.0"
 	},
 	"autoload": {
 		"classmap": ["user/"]

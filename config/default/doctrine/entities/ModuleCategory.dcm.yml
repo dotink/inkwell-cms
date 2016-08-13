@@ -1,9 +1,0 @@
-ModuleCategory:
-  type: entity
-  table: module_categories
-  repositoryClass: ModuleCategories
-
-  id:
-    name:
-      column: name
-      type: string

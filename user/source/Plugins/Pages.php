@@ -1,8 +1,12 @@
 <?php namespace Inkwell\CMS\Plugin
 {
+
 	use Layouts;
+	use Modules;
 	use Pages as Repository;
+	use Inkwell\CMS\Composer;
 	use Tenet\Accessor as Agent;
+	use Dotink\Flourish\Collection;
 	use IW\HTTP;
 
 	class Pages extends AbstractPlugin
@@ -17,7 +21,7 @@
 		{
 			parent::route($group);
 
-			$group->link('/[+:id]-[!:slug]', static::class . '::update');
+			$group->link('/[+:id]-[!:slug]', static::class . '::configure');
 		}
 
 
@@ -29,6 +33,32 @@
 			$this->agent = $agent;
 			$this->repo  = $repo;
 		}
+
+
+		/**
+		 *
+		 */
+		public function configure(Layouts $layouts)
+		{
+			$id      = $this->request->params->get('id');
+			$slug    = $this->request->params->get('slug');
+			$entity  = $this->repo->findOneById($id);
+ 			$layouts = $layouts->findAll();
+
+			if (!$entity) {
+				return $this->response->setStatus(HTTP\NOT_FOUND);
+			}
+
+			if ($this->request->checkMethod(HTTP\POST)) {
+				$this->agent->fill($entity, $this->request->params->get('entity', array()));
+				$this->repo->save($entity);
+
+				return $this->router->redirect('./');
+			}
+
+			return $this->render(get_defined_vars());
+		}
+
 
 		/**
 		 *
@@ -52,34 +82,41 @@
 		/**
 		 *
 		 */
-		public function remove()
+		public function edit(Modules $modules)
 		{
+			$source_url = $this->request->getUri()->modify('?action=preview');
+			$modules    = $modules->findAll();
 
+			return $this->render(get_defined_vars());
 		}
 
 
 		/**
 		 *
 		 */
-		public function update(Layouts $layouts)
+		public function preview(Collection $data, Composer $composer)
 		{
-			$id      = $this->request->params->get('id');
-			$slug    = $this->request->params->get('slug');
-			$entity  = $this->repo->findOneById($id);
- 			$layouts = $layouts->findAll();
+			$id   = $this->request->params->get('id', NULL);
+			$page = $this->repo->findOneById($id);
 
-			if (!$entity) {
+			if (!$page) {
 				return $this->response->setStatus(HTTP\NOT_FOUND);
 			}
 
-			if ($this->request->checkMethod(HTTP\POST)) {
-				$this->agent->fill($entity, $this->request->params->get('entity', array()));
-				$this->repo->save($entity);
+			$data->set('this.page', $page);
+			$data->set('this.params', $this->request->params->get());
+			$composer->setEditable(TRUE);
 
-				return $this->router->redirect('./');
-			}
+			return $composer->render($page, $data);
+		}
 
-			return $this->render(get_defined_vars());
+
+		/**
+		 *
+		 */
+		public function remove()
+		{
+
 		}
 
 

@@ -6,16 +6,20 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title><?= $this('title') ?: 'Welcome' ?> :: inKWell CMS</title>
 
-		<link rel="stylesheet" type="text/css" href="/assets/cms/plugin/flakes/css/all.css" />
 		<link rel="stylesheet" type="text/css" href="/assets/cms/fonts/icomoon.css" />
-		<link rel="stylesheet" type="text/css" href="/assets/cms/styles/main.css" />
+		<link rel="stylesheet" type="text/css" href="/assets/cms/plugin/flakes/css/all.css" />
 		<link rel="stylesheet" type="text/css" href="/assets/cms/plugin/flakes/lib/gridforms/gridforms/gridforms.css" />
 		<link rel="stylesheet" type="text/css" href="/assets/cms/plugin/tipped/css/tipped/tipped.css" />
+		<link rel="stylesheet" type="text/css" href="/assets/cms/styles/main.css" />
 	</head>
 
-	<body class="grid-12 gutter-80">
+	<body class="grid-12 gutter-40">
 		<?php $this->inject('-header.html') ?>
-		<?php $this->insert('content') ?>
+
+		<section class="span-10" role="main">
+			<?php $this->insert('content') ?>
+		</section>
+
 		<?php $this->inject('-footer.html') ?>
 	</body>
 

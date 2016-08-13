@@ -94,6 +94,7 @@
 			$entities = $this->repo->findById($ids);
 
 			if ($confirm) {
+
 				$entities->map(function($entity) {
 					$this->repo->remove($entity);
 				});
