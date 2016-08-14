@@ -10,6 +10,11 @@ Inkwell.Editor = Vue.extend({
 			/**
 			 *
 			 */
+			components: [],
+
+			/**
+			 *
+			 */
 			containerSelector: '[data-container]',
 
 			/**
@@ -75,11 +80,6 @@ Inkwell.Editor = Vue.extend({
 			/**
 			 *
 			 */
-			pageModules: [],
-
-			/**
-			 *
-			 */
 			subdoc: null,
 
 			/**
@@ -94,6 +94,10 @@ Inkwell.Editor = Vue.extend({
 		 * Assign a module ID to a module based on the highest current module count
 		 */
 		assignModuleId: function($module) {
+			if ($module.attr(this.moduleNameAttr)) {
+				return;
+			}
+
 			this.module.map = 'module-' + ++this.moduleCount;
 
 			$module.attr(this.moduleNameAttr, this.module.map);
@@ -104,9 +108,14 @@ Inkwell.Editor = Vue.extend({
 		 * Assign a node ID to a node based on the highest current node count
 		 */
 		assignNodeId: function($node) {
+			if ($node.attr(this.nodeNameAttr)) {
+				return;
+			}
+
 			var nodeName = 'node-' + ++this.nodeCount;
 
 			$node.attr(this.nodeNameAttr, nodeName);
+
 			this.module.nodes.push(nodeName);
 		},
 
@@ -168,19 +177,24 @@ Inkwell.Editor = Vue.extend({
 
 			this.createControls([
 				{html: '<a data-control="insert">Add Modules</a>', callback: function(e) {
-					this.controller.insert();
+					this.controller.insert(e);
 				}},
 				{html: '<a data-control="manage">Manage Modules</a>', callback: function(e) {
-					this.controller.manage();
+					this.controller.manage(e);
 				}},
 			]);
 		},
 
 
 		/**
-		 * Insert a new module
+		 * Insert a module in the focused container.
 		 */
-		insert: function() {
+		insert: function(event) {
+
+			//
+			// There's really not much to do before an insert.
+			//
+
 			this.show('select');
 		},
 
@@ -188,54 +202,53 @@ Inkwell.Editor = Vue.extend({
 		/**
 		 *
 		 */
-		load: function() {
+		load: function(event) {
 
+			//
+			// Load a component based on the eventTarget's data-target value
+			//
+
+			this.show('settings');
 		},
 
 
 		/**
-		 *
+		 * Manage modules in the focused container.
 		 */
-		reset: function() {
-			this.module  = {};
-			this.modules = [];
-		},
+		manage: function(event) {
+			var container = this.focus.data('container');
 
-
-		/**
-		 *
-		 */
-		save: function(event) {
-			if (this.module) {
-				this.module.el
-					.prop('controller', this) // Add controller the page module
-					.each(function() {
-						this.controller.assignModuleId($(this));
-					})
-					.find(this.nodeSelector)
-					.prop('controller', this) // Add controller to any nodes underneath it
-					.each(function() {
-						this.controller.assignNodeId($(this));
-					})
-				;
-
-				this.module.el.insertBefore(this.focus.find('.inkwell-controls'));
-				this.pageModules.push(this.module);
-
-				this.reset();
-				this.sync();
+			for (x = 0; x < this.components.length; x++) {
+				if (this.components[x].container == container) {
+					this.modules.push(this.components[x]);
+				}
 			}
 
-			this.hide();
+			this.show('manage');
 		},
 
+
 		/**
-		 *
+		 * Remove a component based on the eventTarget's data-target value
+		 */
+		remove: function(event)
+		{
+
+		},
+
+
+		/**
+		 * We either select a module (here), or load one (see: load)
 		 */
 		select: function(event) {
 			var $selectedModule = $(event.currentTarget);
+			var $moduleContent  = $($selectedModule.data('content'));
 
 			$selectedModule.addClass('selected');
+
+			if ($moduleContent.length > 1) {
+				$moduleContent = $moduleContent.wrap('<div></div>').attr(moduleNameAttr);
+			}
 
 			this.module = {
 				id: null,
@@ -245,14 +258,15 @@ Inkwell.Editor = Vue.extend({
 				module: $selectedModule.data('id'),
 				container: this.focus.data('container'),
 				position: this.focus.find(this.moduleSelector).length + 1,
-				el: $('<div data-module>' + $selectedModule.data('content') + '</div>')
+				el: $moduleContent
 			}
 
 			this.show('settings');
 		},
 
+
 		/**
-		 *
+		 * Show the requested view.
 		 */
 		show: function(view) {
 			var $active = this.el
@@ -273,25 +287,43 @@ Inkwell.Editor = Vue.extend({
 
 
 		/**
-		 *
+		 * Store all the workspaces.
 		 */
-		sync: function() {
-			this.editor.syncRegions($(this.subdoc).find(this.nodeSelector).toArray());
+		store: function(event) {
+			this.module.el
+				.prop('controller', this) // Add controller the page module
+				.each(function() {
+					this.controller.assignModuleId($(this));
+				})
+				.find(this.nodeSelector)
+				.prop('controller', this) // Add controller to any nodes underneath it
+				.each(function() {
+					this.controller.assignNodeId($(this));
+				})
+			;
+
+			this.sync();
+			this.hide();
 		},
 
+
 		/**
-		 *
+		 * Clear the workspace and resync all nodes for editing.
 		 */
-		manage: function() {
-			var container = this.focus.data('container');
+		sync: function() {
 
-			for (x = 0; x < this.pageModules.length; x++) {
-				if (this.pageModules[x].container == container) {
-					this.modules.push(this.pageModules[x]);
-				}
-			}
+			//
+			// Figure out if the module exists in the components list, if not, add it.  Then look
+			// for the module in the container and insert there if need be.
+			//
 
-			this.show('manage');
+			this.module.el.insertBefore(this.focus.find('.inkwell-controls'));
+			this.components.push(this.module);
+
+			this.module  = {};
+			this.modules = [];
+
+			this.editor.syncRegions($(this.subdoc).find(this.nodeSelector).toArray());
 		}
 	},
 
@@ -313,7 +345,6 @@ Inkwell.Editor = Vue.extend({
 		load(this, 1);
 	}
 });
-
 
 
 $(function() {
