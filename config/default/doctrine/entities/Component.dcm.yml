@@ -1,0 +1,46 @@
+Component:
+  type: entity
+  table: components
+  repositoryClass: Components
+
+  id:
+    id:
+      column: id
+      type: integer
+      generator:
+        strategy: IDENTITY
+
+  fields:
+    title:
+      column: title
+      type: string
+    container:
+      column: container
+      type: string
+    position:
+      column: position
+      type: integer
+
+  manyToOne:
+    page:
+      targetEntity: Page
+      joinColumn:
+        name: page
+        referencedColumnName: id
+        onDelete: CASCADE
+
+    module:
+      targetEntity: Module
+      joinColumn:
+        name: module
+        referencedColumnName: id
+        onDelete: RESTRICT
+
+  oneToOne:
+    content:
+      targetEntity: Content
+      cascade: [persist,remove]
+      joinColumn:
+        name: content
+        referencedColumnName: id
+        onDelete: CASCADE
