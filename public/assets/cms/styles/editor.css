@@ -25,7 +25,6 @@ h6 {
 	background-color: #fff;
 	position: absolute;
 	margin-top: 1rem;
-	padding: 1rem;
 	width: 70%;
 	height: 80%;
 	left: 15%;
@@ -38,22 +37,50 @@ h6 {
 	top: 10%;
 }
 
+#modules > * {
+	padding: 1rem;
+	box-sizing: border-box;
+}
+
+#modules header {
+	height: 80px;
+	border-bottom: solid 1px #eee;
+}
+
+#modules footer {
+	height: 70px;
+	text-align: right;
+}
+
 #modules .views {
+	height: calc(100% - 150px);
 	position: relative;
 	overflow: hidden;
 }
 
 #modules .view {
-	margin-top: 100%;
-	transition: 500ms margin-top;
+	background-color: #fff;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	padding: 1rem;
 	z-index: 5;
 }
 
 #modules .view.active {
-	margin-top: 0;
 	z-index: 10;
 }
 
-#modules .module .content {
-	display: none;
+#modules .module {
+	border: solid 1px #eee;
+	text-align: center;
+	padding: 1rem;
+	margin-bottom: 1.5rem;
+	cursor: pointer;
+}
+
+#modules .module.selected {
+	background-color: rgba(234,156,18,.1);
 }
