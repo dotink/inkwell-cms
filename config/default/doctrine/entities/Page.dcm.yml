@@ -28,6 +28,9 @@ Page:
       column: meta_description
       type: text
       nullable: true
+    dateCreated:
+      column: date_created
+      type: time
 
   manyToOne:
     layout:

@@ -13,6 +13,12 @@
 
 		/**
 		 * @access protected
+		 * @var \DateTime
+		 */
+		protected $dateCreated;
+
+		/**
+		 * @access protected
 		 * @var string
 		 */
 		protected $description;
@@ -53,6 +59,18 @@
 		public function getContent()
 		{
 			return $this->content;
+		}
+
+
+		/**
+		 * Get the value of dateCreated
+		 *
+		 * @access public
+		 * @return \DateTime The value of dateCreated
+		 */
+		public function getDateCreated()
+		{
+			return $this->dateCreated;
 		}
 
 
@@ -114,6 +132,21 @@
 		public function setContent(\Content $value)
 		{
 			$this->content = $value;
+
+			return $this;
+		}
+
+
+		/**
+		 * Set the value of dateCreated
+		 *
+		 * @access public
+		 * @param \DateTime $value The value to set to dateCreated
+		 * @return Partial The object instance for method chaining
+		 */
+		public function setDateCreated($value)
+		{
+			$this->dateCreated = $value;
 
 			return $this;
 		}

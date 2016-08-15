@@ -1,4 +1,4 @@
-<?php namespace {
+<?php
 
 	class Module extends Base\Module implements JsonSerializable
 	{
@@ -13,6 +13,8 @@
 		 */
 		public function __construct()
 		{
+			$this->setDateCreated(new DateTime());
+
 			return parent::__construct();
 		}
 
@@ -27,4 +29,3 @@
 				: NULL;
 		}
 	}
-}

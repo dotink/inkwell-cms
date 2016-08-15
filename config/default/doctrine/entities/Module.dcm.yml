@@ -25,6 +25,9 @@ Module:
       column: type
       type: text
       nullable: true
+    dateCreated:
+      column: date_created
+      type: time
 
   oneToOne:
     content:
