@@ -1040,12 +1040,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:dotink/inkwell-doctrine.git",
-                "reference": "9839038b5bcd78c9cb208fd75b015ca50f3717ee"
+                "reference": "ee75b1c15a311355d9eb9b14cabdc79b05d40fa1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dotink/inkwell-doctrine/zipball/9839038b5bcd78c9cb208fd75b015ca50f3717ee",
-                "reference": "9839038b5bcd78c9cb208fd75b015ca50f3717ee",
+                "url": "https://api.github.com/repos/dotink/inkwell-doctrine/zipball/ee75b1c15a311355d9eb9b14cabdc79b05d40fa1",
+                "reference": "ee75b1c15a311355d9eb9b14cabdc79b05d40fa1",
                 "shasum": ""
             },
             "require": {
@@ -1085,7 +1085,7 @@
                 "doctrine",
                 "orm"
             ],
-            "time": "2016-08-12 04:01:10"
+            "time": "2016-08-15 03:45:11"
         },
         {
             "name": "dotink/inkwell-events",
@@ -1193,16 +1193,16 @@
         },
         {
             "name": "dotink/inkwell-http",
-            "version": "1.0.2",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:dotink/inkwell-http.git",
-                "reference": "22bca3bcaa62e1b76be22f402e80c0b02b6220f9"
+                "reference": "a08e9729eeb91a2f618611d250a9a3c64d71e42f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dotink/inkwell-http/zipball/22bca3bcaa62e1b76be22f402e80c0b02b6220f9",
-                "reference": "22bca3bcaa62e1b76be22f402e80c0b02b6220f9",
+                "url": "https://api.github.com/repos/dotink/inkwell-http/zipball/a08e9729eeb91a2f618611d250a9a3c64d71e42f",
+                "reference": "a08e9729eeb91a2f618611d250a9a3c64d71e42f",
                 "shasum": ""
             },
             "require": {
@@ -1245,7 +1245,7 @@
             "keywords": [
                 "http"
             ],
-            "time": "2016-08-04 07:16:37"
+            "time": "2016-08-15 03:45:49"
         },
         {
             "name": "dotink/inkwell-relay",

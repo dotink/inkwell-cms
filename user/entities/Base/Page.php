@@ -7,6 +7,12 @@
 	{
 		/**
 		 * @access protected
+		 * @var ArrayCollection
+		 */
+		protected $components;
+
+		/**
+		 * @access protected
 		 * @var string
 		 */
 		protected $description;
@@ -53,6 +59,19 @@
 		 */
 		public function __construct()
 		{
+			$this->components = new ArrayCollection();
+		}
+
+
+		/**
+		 * Get the value of components
+		 *
+		 * @access public
+		 * @return ArrayCollection The value of components
+		 */
+		public function getComponents()
+		{
+			return $this->components;
 		}
 
 

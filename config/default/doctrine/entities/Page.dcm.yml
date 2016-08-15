@@ -36,3 +36,9 @@ Page:
         name: layout
         referencedColumnName: id
         onDelete: RESTRICT
+
+  oneToMany:
+    components:
+      targetEntity: Component
+      cascade: [persist,remove]
+      mappedBy: page

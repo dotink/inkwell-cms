@@ -70,7 +70,7 @@
 				</div>
 			</div>
 			<footer>
-				<a class="button-green icon-check" v-on:click="save">Save</a>
+				<a class="button-green icon-check" v-on:click="store">Save</a>
 				<a class="button-gray icon-cross" v-on:click="hide">Cancel</a>
 			</footer>
 		</div>

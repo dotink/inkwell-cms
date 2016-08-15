@@ -15,6 +15,11 @@ Inkwell.Editor = Vue.extend({
 			/**
 			 *
 			 */
+			containerNameAttr: 'data-container',
+
+			/**
+			 *
+			 */
 			containerSelector: '[data-container]',
 
 			/**
@@ -76,6 +81,21 @@ Inkwell.Editor = Vue.extend({
 			 *
 			 */
 			nodeSelector: '*[data-node]',
+
+			/**
+			 *
+			 */
+			pull: function() {
+
+			},
+
+			/**
+			 *
+			 */
+			push: function (c) {
+				console.log(c.components);
+			},
+
 
 			/**
 			 *
@@ -173,7 +193,12 @@ Inkwell.Editor = Vue.extend({
 
 			this.editor.attach(this.modal);
 			this.editor.init('', '');
-			this.load();
+
+			this.editor.addEventListener('saved', (function(controller) {
+				return function(ev) {
+					controller.push(controller, ev)
+				};
+			})(this));
 
 			this.createControls([
 				{html: '<a data-control="insert">Add Modules</a>', callback: function(e) {
@@ -183,6 +208,8 @@ Inkwell.Editor = Vue.extend({
 					this.controller.manage(e);
 				}},
 			]);
+
+			this.pull(this);
 		},
 
 
@@ -365,7 +392,64 @@ $(function() {
 
 	new Inkwell.Editor({
 		data: {
-			subdoc: subdoc
+			subdoc: subdoc,
+			push: function(controller, ev) {
+				var components = $.extend([], controller.components);
+				var postData = [];
+
+				for (var x = 0; x < controller.components.length; x++) {
+					var component = $.extend({}, components[x]);
+
+					delete component.el;
+					delete component.map;
+					delete component.nodes;
+
+					component.content = {
+						data: components[x].el[0].outerHTML
+					};
+
+					postData.push(component);
+				}
+
+				$.ajax({
+					type: "POST",
+					url: window.location,
+					dataType: 'json',
+					contentType: 'application/json; charset=utf-8',
+					data: JSON.stringify({
+						components: postData
+					}),
+					success: function(data, status) {
+						console.log(data);
+					}
+				});
+			},
+			pull: function(controller) {
+				$.ajax({
+					type: "GET",
+					url: window.location,
+					dataType: 'json',
+					success: function(data, status) {
+						var selector = null;
+
+						for (var i in data) {
+							console.log(i);
+							data[i].el = $(data[i].content);
+
+							delete data[i].content;
+
+							controller.module = data[i];
+							controller.focus  = $(controller.subdoc).find(
+								'[' + controller.containerNameAttr + '=' + data[i].container + ']'
+							);
+
+							console.log(controller.focus.data('container'));
+
+							controller.store();
+						}
+					}
+				});
+			}
 		}
 	});
 })

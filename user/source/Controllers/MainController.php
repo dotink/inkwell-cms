@@ -30,9 +30,9 @@
 			$data->set('this.page',   $page);
 			$data->set('this.params', $this->request->params->get());
 
+			foreach ($page->getComponents() as $component) {
 /*
-			foreach ($page->getPageModules() as $page_module) {
-				$routine = $page_module->getRoutine();
+				$routine = $component->getRoutine();
 
 				if (!$routine || !($routine->getClass() instanceof Routine)) {
 					continue;
@@ -41,15 +41,16 @@
 				$response = $this->app['broker']->make($routine->getClass())(
 					$this->request,
 					$this->response,
-					$collection,
-					$page_module
+					$component,
+					$data  // this data object should have a 'this.module' element set with component settings
 				);
 
 				if ($response->getStatus() != HTTP\OK) {
 					return $response;
 				}
-			}
 */
+				$composer->addComponent($component, $data);
+			}
 
 			return $composer->render($page, $data);
 		}

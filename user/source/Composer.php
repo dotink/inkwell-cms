@@ -1,12 +1,16 @@
 <?php namespace Inkwell\CMS
 {
 	use Page;
+	use Component;
 	use Twig_Environment;
 	use Dotink\Flourish\Collection;
 	use Wa72\HtmlPageDom\HtmlPageCrawler;
 
 	class Composer
 	{
+		private $components = array();
+
+
 		/**
 		 *
 		 */
@@ -14,16 +18,23 @@
 		{
 			$this->twig = $twig;
 			$this->dom  = $dom;
-
 		}
 
 
 		/**
 		 *
 		 */
-		public function addModule(PageModule $module, Collection $data)
+		public function addComponent(Component $component, Collection $data)
 		{
+			$container = $component->getContainer();
+			$position  = $component->getPosition();
+			$content   = $component->fetchContent();
 
+			if (!isset($this->components[$container])) {
+				$this->components[$container] = array();
+			}
+
+			$this->components[$container][$position] = $this->dom->create($content);
 		}
 
 
@@ -35,8 +46,17 @@
 			$output = $this->twig->render($page->getLayout()->getContent()->getId(), $data->get());
 			$dom    = $this->dom->create($output);
 
-			return $dom;
+			foreach ($this->components as $container => $components) {
+				ksort($components);
 
+				$container = $dom->filter('[data-container=' . $container . ']');
+
+				foreach ($components as $component) {
+					$container->append($component);
+				}
+			}
+
+			return $dom;
 		}
 
 

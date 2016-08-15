@@ -28,6 +28,24 @@
 		/**
 		 *
 		 */
+		static public function sortComponents($a, $b) {
+			if ($a->getContainer() < $b->getContainer()) {
+				return -1;
+			} elseif ($a->getContainer() > $b->getContainer()) {
+				return 1;
+			} elseif ($a->getPosition() > $b->getPosition()) {
+				return -1;
+			} elseif ($a->getPosition() > $b->getPosition()) {
+				return 1;
+			} else {
+				return 0;
+			}
+		}
+
+
+		/**
+		 *
+		 */
 		public function __construct(Repository $repo, Agent $agent)
 		{
 			$this->agent = $agent;
@@ -84,10 +102,37 @@
 		 */
 		public function edit(Modules $modules)
 		{
+			$mime_type  = $this->acceptMimeTypes(['text/html','application/json']);
 			$source_url = $this->request->getUri()->modify('?action=preview');
+			$headers    = $this->request->headers;
 			$modules    = $modules->findAll();
 
-			return $this->render(get_defined_vars());
+			if ($mime_type != 'application/json') {
+				return $this->render(get_defined_vars());
+			}
+
+			//
+			// JSON Handling
+			//
+
+			$id   = $this->request->params->get('id', NULL);
+			$page = $this->repo->findOneById($id);
+
+			if ($this->request->checkMethod(HTTP\POST)) {
+				$data = json_decode($this->request->get(), TRUE);
+
+				$this->agent->fill($page, $data);
+				$this->repo->save($page);
+
+				$this->response->headers->set('Content-Type', 'application/json; charset=utf-8');
+				return json_encode(TRUE);
+			}
+
+			$components = $page->getComponents()->getIterator();
+
+			$components->uasort([self::class, 'sortComponents']);
+
+			return json_encode($components);
 		}
 
 
@@ -105,6 +150,7 @@
 
 			$data->set('this.page', $page);
 			$data->set('this.params', $this->request->params->get());
+
 			$composer->setEditable(TRUE);
 
 			return $composer->render($page, $data);

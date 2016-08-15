@@ -1,7 +1,13 @@
 <?php namespace {
 
-	class Component extends Base\Component
+	class Component extends Base\Component implements JsonSerializable
 	{
+		use Inkwell\Doctrine\JsonEntity;
+
+		static $jsonObjectConfig = [
+			'content' => 'getData',
+			'module'  => 'getId'
+		];
 
 		/**
 		 * Instantiate a new Component
@@ -22,5 +28,4 @@
 				: NULL;
 		}
 	}
-
 }
