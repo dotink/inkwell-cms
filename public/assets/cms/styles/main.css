@@ -43,10 +43,13 @@ nav li {
 	margin: 0;
 }
 
-nav.components {
+nav.features {
 	background-color: #2d477b;
 	padding: .5rem 0 !important;
-	text-align: center;
+	text-align: left;
+	box-shadow: 0 0 5px 5px rgba(0,0,0,.25);
+	position: relative;
+	z-index: 10;
 }
 
 nav.tools,
@@ -56,6 +59,7 @@ nav.tools,
 
 nav.tools {
 	padding: 0 !important;
+	box-shadow: inset -10px 0 10px 5px rgba(0,0,0,.1);
 }
 
 nav.tools li {
@@ -79,7 +83,8 @@ li .icon:before {
 	background-repeat: no-repeat;
 	background-position: center center;
 	height: 88px;
-	text-indent: -500px;
+	text-indent: 200%;
+	white-space: nowrap;
 	overflow: hidden;
 }
 
