@@ -21,7 +21,7 @@ h6 {
 	margin: .8rem 0 .4rem 0;
 }
 
-#modules {
+#editor {
 	background-color: #fff;
 	position: absolute;
 	margin-top: 1rem;
@@ -33,32 +33,32 @@ h6 {
 	z-index: 20000;
 }
 
-#modules.open {
+#editor.open {
 	top: 10%;
 }
 
-#modules > * {
+#editor > * {
 	padding: 1rem;
 	box-sizing: border-box;
 }
 
-#modules header {
+#editor header {
 	height: 80px;
 	border-bottom: solid 1px #eee;
 }
 
-#modules footer {
+#editor footer {
 	height: 70px;
 	text-align: right;
 }
 
-#modules .views {
+#editor .views {
 	height: calc(100% - 150px);
 	position: relative;
 	overflow: hidden;
 }
 
-#modules .view {
+#editor .view {
 	background-color: #fff;
 	position: absolute;
 	top: 0;
@@ -69,11 +69,11 @@ h6 {
 	z-index: 5;
 }
 
-#modules .view.active {
+#editor .view.active {
 	z-index: 10;
 }
 
-#modules .module {
+#editor .module {
 	border: solid 1px #eee;
 	text-align: center;
 	padding: 1rem;
@@ -81,6 +81,6 @@ h6 {
 	cursor: pointer;
 }
 
-#modules .module.selected {
+#editor .module:hover {
 	background-color: rgba(234,156,18,.1);
 }

@@ -2,38 +2,53 @@ var Inkwell = {};
 
 Inkwell.Editor = Vue.extend({
 	el: function() {
-		return '#modules';
+		return '#editor';
 	},
 
 	data: function() {
 		return {
 			/**
+			 * The underlying content editor (ContentTools Editor)
+			 */
+			app: null,
+
+			/**
 			 *
+			 */
+			componentAttribute: 'data-component',
+
+			/**
+			 *
+			 */
+			componentCount: 0,
+
+			/**
+			 * The list of all components.  Components are modules which have been added to the doc.
 			 */
 			components: [],
 
 			/**
 			 *
 			 */
-			containerNameAttr: 'data-container',
+			containerAttribute: 'data-container',
 
 			/**
 			 *
 			 */
-			containerSelector: '[data-container]',
+			controlsClass: 'iw-container-controls',
 
 			/**
-			 *
+			 * The document we're editing.
 			 */
-			editor: null,
+			doc: null,
 
 			/**
-			 *
+			 * The element which represents our editor view.
 			 */
 			el: null,
 
 			/**
-			 *
+			 * The current focus for the editor (this is usually a container)
 			 */
 			focus: null,
 
@@ -46,16 +61,6 @@ Inkwell.Editor = Vue.extend({
 			 * A temporary working space for a single module
 			 */
 			module: {},
-
-			/**
-			 *
-			 */
-			moduleCount: 0,
-
-			/**
-			 *
-			 */
-			moduleNameAttr: 'data-module',
 
 			/**
 			 *
@@ -75,12 +80,12 @@ Inkwell.Editor = Vue.extend({
 			/**
 			 *
 			 */
-			nodeNameAttr: 'data-node',
+			nodeAttribute: 'data-node',
 
 			/**
 			 *
 			 */
-			nodeSelector: '*[data-node]',
+			page: {},
 
 			/**
 			 *
@@ -92,15 +97,14 @@ Inkwell.Editor = Vue.extend({
 			/**
 			 *
 			 */
-			push: function (c) {
-				console.log(c.components);
-			},
+			push: function () {
 
+			},
 
 			/**
 			 *
 			 */
-			subdoc: null,
+			selectedModule: {},
 
 			/**
 			 *
@@ -113,14 +117,12 @@ Inkwell.Editor = Vue.extend({
 		/**
 		 * Assign a module ID to a module based on the highest current module count
 		 */
-		assignModuleId: function($module) {
-			if ($module.attr(this.moduleNameAttr)) {
+		assignComponentId: function($module) {
+			if ($module.attr(this.componentAttribute)) {
 				return;
 			}
 
-			this.module.map = 'module-' + ++this.moduleCount;
-
-			$module.attr(this.moduleNameAttr, this.module.map);
+			$module.attr(this.componentAttribute, 'c' + ++this.componentCount);
 		},
 
 
@@ -128,15 +130,11 @@ Inkwell.Editor = Vue.extend({
 		 * Assign a node ID to a node based on the highest current node count
 		 */
 		assignNodeId: function($node) {
-			if ($node.attr(this.nodeNameAttr)) {
+			if ($node.attr(this.nodeAttribute)) {
 				return;
 			}
 
-			var nodeName = 'node-' + ++this.nodeCount;
-
-			$node.attr(this.nodeNameAttr, nodeName);
-
-			this.module.nodes.push(nodeName);
+			$node.attr(this.nodeAttribute, 'n' + ++this.nodeCount);
 		},
 
 
@@ -144,30 +142,28 @@ Inkwell.Editor = Vue.extend({
 		 * Initialized containers and add controls to each one.
 		 */
 		createControls: function(controls) {
-			var $containers = $(this.subdoc).find(this.containerSelector);
-			var $controls   = $('<div class="inkwell-controls">');
+			var $containers = $(this.doc).find('[' + this.containerAttribute + ']');
+			var $controls   = $('<div class="' + this.controlsClass + '">');
 
 			//
 			// Focus a container every time we mousenter on one.  This is a sloppy type focus
-			// which makes sure our focused controller is set any time we do anything on it.
+			// which makes sure our focused editor is set any time we do anything on it.
 			//
 
 			$containers
-				.prop('controller', this)
 				.on('mouseenter', function() {
-					this.controller.focus = $(this);
+					this.ownerDocument.editor.focus = $(this);
 				});
 			;
 
 			for (var i in controls) {
 				$controls.append(
 					$(controls[i].html)
-						.prop('controller', this)
 						.on('click', controls[i].callback)
 				);
 			}
 
-			$containers.append($controls);
+			$containers.append($controls.clone(true, true));
 		},
 
 
@@ -186,30 +182,53 @@ Inkwell.Editor = Vue.extend({
 		 *
 		 */
 		 init: function() {
-			this.el     = $(this.$el);
-			this.ct     = this.subdoc.defaultView.ContentTools;
-			this.editor = this.ct.EditorApp.get();
-			this.modal  = new this.ct.ModalUI();
+			this.el = $(this.$el);
+			this.ct = this.doc.defaultView.ContentTools;
+			this.app = this.ct.EditorApp.get();
+			this.modal = new this.ct.ModalUI();
+			this.doc.editor = this;
+			document.editor = this;
 
-			this.editor.attach(this.modal);
-			this.editor.init('', '');
+			this.app.attach(this.modal);
+			this.app.init('', '');
 
-			this.editor.addEventListener('saved', (function(controller) {
+			this.app.addEventListener('saved', (function(editor) {
 				return function(ev) {
-					controller.push(controller, ev)
+					editor.push(editor, ev)
 				};
 			})(this));
 
 			this.createControls([
-				{html: '<a data-control="insert">Add Modules</a>', callback: function(e) {
-					this.controller.insert(e);
+				{html: '<a data-action="insert">Add Modules</a>', callback: function(e) {
+					this.ownerDocument.editor.insert(e);
 				}},
-				{html: '<a data-control="manage">Manage Modules</a>', callback: function(e) {
-					this.controller.manage(e);
+				{html: '<a data-action="manage">Manage Modules</a>', callback: function(e) {
+					this.ownerDocument.editor.manage(e);
 				}},
 			]);
 
-			this.pull(this);
+			this.pull(this, function(editor, data, status) {
+				var components = data.components;
+				editor.page = data;
+
+				for (var i in components) {
+					editor.module = {
+						id: components[i].id,
+						page: components[i].page,
+						title: components[i].title,
+						module: components[i].module,
+						container: components[i].container,
+						position: components[i].position,
+						el: $(components[i].content)
+					}
+
+					editor.focus = $(editor.doc).find(
+						'[' + editor.containerAttribute + '=' + components[i].container + ']'
+					);
+
+					editor.store();
+				}
+			});
 		},
 
 
@@ -268,24 +287,25 @@ Inkwell.Editor = Vue.extend({
 		 * We either select a module (here), or load one (see: load)
 		 */
 		select: function(event) {
-			var $selectedModule = $(event.currentTarget);
-			var $moduleContent  = $($selectedModule.data('content'));
+			var $target = $(event.currentTarget), $componentElement;
+			this.selectedModule = this.page.modules[$target.data('idx')];
+			$componentElement = $(this.selectedModule.content);
 
-			$selectedModule.addClass('selected');
-
-			if ($moduleContent.length > 1) {
-				$moduleContent = $moduleContent.wrap('<div></div>').attr(moduleNameAttr);
+			if ($componentElement.length > 1) {
+				$componentElement = $componentElement.wrap('<div></div>');
 			}
+
+			$componentElement.attr(this.componentAttribute);
+			$target.addClass('selected');
 
 			this.module = {
 				id: null,
-				map: null,
-				nodes: [],
-				title: $selectedModule.data('title'),
-				module: $selectedModule.data('id'),
+				page: this.page.id,
+				title: this.selectedModule.title,
+				module: this.selectedModule.id,
 				container: this.focus.data('container'),
-				position: this.focus.find(this.moduleSelector).length + 1,
-				el: $moduleContent
+				position: this.focus.find('[' + this.componentAttribute + ']').length + 1,
+				el: $componentElement
 			}
 
 			this.show('settings');
@@ -318,14 +338,13 @@ Inkwell.Editor = Vue.extend({
 		 */
 		store: function(event) {
 			this.module.el
-				.prop('controller', this) // Add controller the page module
 				.each(function() {
-					this.controller.assignModuleId($(this));
+					this.ownerDocument.editor.assignComponentId($(this));
 				})
-				.find(this.nodeSelector)
-				.prop('controller', this) // Add controller to any nodes underneath it
+				.find('[' + this.nodeAttribute + ']')
+				.addBack('[' + this.nodeAttribute + ']')
 				.each(function() {
-					this.controller.assignNodeId($(this));
+					this.ownerDocument.editor.assignNodeId($(this));
 				})
 			;
 
@@ -344,13 +363,13 @@ Inkwell.Editor = Vue.extend({
 			// for the module in the container and insert there if need be.
 			//
 
-			this.module.el.insertBefore(this.focus.find('.inkwell-controls'));
+			this.module.el.insertBefore(this.focus.find('.' + this.controlsClass));
 			this.components.push(this.module);
 
 			this.module  = {};
 			this.modules = [];
 
-			this.editor.syncRegions($(this.subdoc).find(this.nodeSelector).toArray());
+			this.app.syncRegions($(this.doc).find('[' + this.nodeAttribute + ']').toArray());
 		}
 	},
 
@@ -358,13 +377,13 @@ Inkwell.Editor = Vue.extend({
 	 *
 	 */
 	created: function() {
-		var load = function(controller, time) {
+		var load = function(editor, time) {
 			setTimeout(function() {
-				if (controller.subdoc.defaultView.ContentTools == undefined) {
-					return load(controller, time * 10);
+				if (editor.doc.defaultView.ContentTools == undefined) {
+					return load(editor, time * 10);
 				}
 
-				controller.init();
+				editor.init();
 
 			}, time);
 		};
@@ -375,10 +394,10 @@ Inkwell.Editor = Vue.extend({
 
 
 $(function() {
-	var subdoc = document.getElementById('viewpane').contentWindow.document;
+	var doc = document.getElementById('viewpane').contentWindow.document;
 
 	$('link[data-copy], script[data-copy]').each(function() {
-		var element = subdoc.createElement(this.localName);
+		var element = doc.createElement(this.localName);
 
 		if (element.localName == 'script') {
 			element.src = this.src;
@@ -387,22 +406,21 @@ $(function() {
 			element.rel  = this.rel;
 		}
 
-		subdoc.body.appendChild(element);
+		doc.body.appendChild(element);
 	});
 
 	new Inkwell.Editor({
 		data: {
-			subdoc: subdoc,
-			push: function(controller, ev) {
-				var components = $.extend([], controller.components);
+			el: '#editor',
+			doc: doc,
+			push: function(editor, ev) {
+				var components = $.extend([], editor.components);
 				var postData = [];
 
-				for (var x = 0; x < controller.components.length; x++) {
+				for (var x = 0; x < editor.components.length; x++) {
 					var component = $.extend({}, components[x]);
 
 					delete component.el;
-					delete component.map;
-					delete component.nodes;
 
 					component.content = {
 						data: components[x].el[0].outerHTML
@@ -424,29 +442,13 @@ $(function() {
 					}
 				});
 			},
-			pull: function(controller) {
+			pull: function(editor, callback) {
 				$.ajax({
 					type: "GET",
 					url: window.location,
 					dataType: 'json',
 					success: function(data, status) {
-						var selector = null;
-
-						for (var i in data) {
-							console.log(i);
-							data[i].el = $(data[i].content);
-
-							delete data[i].content;
-
-							controller.module = data[i];
-							controller.focus  = $(controller.subdoc).find(
-								'[' + controller.containerNameAttr + '=' + data[i].container + ']'
-							);
-
-							console.log(controller.focus.data('container'));
-
-							controller.store();
-						}
+						callback(editor, data, status);
 					}
 				});
 			}

@@ -20,7 +20,7 @@
 
 		<?php $this->insert('tool') ?>
 
-		<div id="modules">
+		<div id="editor">
 			<header>
 				<h5 class="title">{{ title }}</h5>
 			</header>
@@ -28,25 +28,17 @@
 
 				<!-- Selection View -->
 
-				<div class="view grid-12 gutter-20" title="Insert a Module" data-name="select">
-					<?php foreach ($this['modules'] as $module) { ?>
-						<div class="span-4">
-							<div
-								class="module"
-								data-id="<?= html::out($module->getId()) ?>"
-								data-title="<?= html::out($module->getTitle()) ?>"
-								data-content="<?= html::out($module->fetchContent()) ?>"
-								v-on:click="select"
-							>
-								<h6><?= html::out($module->getTitle()) ?></h6>
-							</div>
+				<div class="view grid-12 gutter-20" title="Add a New Component" data-name="select">
+					<div v-for="(i, module) in page.modules" class="span-4">
+						<div class="module" data-idx="{{ i }}" v-on:click="select">
+							<h6>{{ module.title }}</h6>
 						</div>
-					<?php } ?>
+					</div>
 				</div>
 
 				<!-- Module Settings View -->
 
-				<div class="view grid-form" title="Module Settings"  data-name="settings">
+				<div class="view grid-form" title="Component Settings"  data-name="settings">
 					<div data-row-span="1">
 						<div data-field-span="1">
 							<label>Title</label>
@@ -57,7 +49,7 @@
 
 				<!-- Manage Modules View -->
 
-				<div class="view" title="Manage Modules" data-name="manage">
+				<div class="view" title="Manage Components" data-name="manage">
 					<ol class="sortable">
 						<li v-for="module in modules" data-map="module.map">
 							<h6 class="title">{{ module.title }}</h6>

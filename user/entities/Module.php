@@ -1,7 +1,12 @@
 <?php namespace {
 
-	class Module extends Base\Module
+	class Module extends Base\Module implements JsonSerializable
 	{
+		use Inkwell\Doctrine\JsonEntity;
+
+		static $jsonObjectConfig = [
+			'content' => 'getData'
+		];
 
 		/**
 		 * Instantiate a new Module

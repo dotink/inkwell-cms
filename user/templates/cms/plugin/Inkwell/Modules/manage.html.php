@@ -25,6 +25,14 @@
 					<div class="span-1">
 						<div class="module" data-tipped-options="showOn: 'click', hideOn: 'click'" title="<?= html::out($entity->getDescription()) ?>">
 							<?= html::out($entity->getTitle()) ?>
+								<a  class="icon-cogs"
+									title="Configure"
+									data-tipped-options="position: 'left'"
+									href="<?= html::anchor('./[id]-[ws:slug]', [
+										'id'   => $entity->getId(),
+										'slug' => $entity->getName()
+									]) ?>">Configure</a>
+
 						</div>
 					</div>
 				<?php } ?>

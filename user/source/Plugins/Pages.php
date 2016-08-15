@@ -129,10 +129,15 @@
 			}
 
 			$components = $page->getComponents()->getIterator();
+			$modules    = $modules->getIterator();
 
 			$components->uasort([self::class, 'sortComponents']);
 
-			return json_encode($components);
+			return json_encode([
+				'id'         => $id,
+				'modules'    => $modules,
+				'components' => $components
+			]);
 		}
 
 

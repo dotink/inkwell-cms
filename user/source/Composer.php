@@ -28,13 +28,13 @@
 		{
 			$container = $component->getContainer();
 			$position  = $component->getPosition();
-			$content   = $component->fetchContent();
+			$output    = $this->twig->render($component->getContent()->getId(), $data->get());
 
 			if (!isset($this->components[$container])) {
 				$this->components[$container] = array();
 			}
 
-			$this->components[$container][$position] = $this->dom->create($content);
+			$this->components[$container][$position] = $this->dom->create($output);
 		}
 
 
@@ -43,7 +43,8 @@
 		 */
 		public function render(Page $page, Collection $data)
 		{
-			$output = $this->twig->render($page->getLayout()->getContent()->getId(), $data->get());
+			$layout = $page->getLayout();
+			$output = $this->twig->render($layout->getContent()->getId(), $data->get());
 			$dom    = $this->dom->create($output);
 
 			foreach ($this->components as $container => $components) {
