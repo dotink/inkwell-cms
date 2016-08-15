@@ -81,6 +81,7 @@ h6 {
 	cursor: pointer;
 }
 
-#editor .module:hover {
+#editor .module:hover,
+#editor .module.selected {
 	background-color: rgba(234,156,18,.1);
 }

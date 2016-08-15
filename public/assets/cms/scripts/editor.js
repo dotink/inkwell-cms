@@ -104,7 +104,7 @@ Inkwell.Editor = Vue.extend({
 			/**
 			 *
 			 */
-			selectedModule: {},
+			selection: null,
 
 			/**
 			 *
@@ -137,13 +137,20 @@ Inkwell.Editor = Vue.extend({
 			$node.attr(this.nodeAttribute, 'n' + ++this.nodeCount);
 		},
 
+		/**
+		 *
+		 */
+		createElement: function() {
+			return this.doc.createElement('div');
+		},
+
 
 		/**
 		 * Initialized containers and add controls to each one.
 		 */
 		createControls: function(controls) {
 			var $containers = $(this.doc).find('[' + this.containerAttribute + ']');
-			var $controls   = $('<div class="' + this.controlsClass + '">');
+			var $controls   = $(this.createElement()).addClass(this.controlsClass);
 
 			//
 			// Focus a container every time we mousenter on one.  This is a sloppy type focus
@@ -187,7 +194,6 @@ Inkwell.Editor = Vue.extend({
 			this.app = this.ct.EditorApp.get();
 			this.modal = new this.ct.ModalUI();
 			this.doc.editor = this;
-			document.editor = this;
 
 			this.app.attach(this.modal);
 			this.app.init('', '');
@@ -219,7 +225,7 @@ Inkwell.Editor = Vue.extend({
 						module: components[i].module,
 						container: components[i].container,
 						position: components[i].position,
-						el: $(components[i].content)
+						el: $(editor.createElement()).append(components[i].content).children() // hacky
 					}
 
 					editor.focus = $(editor.doc).find(
@@ -287,25 +293,26 @@ Inkwell.Editor = Vue.extend({
 		 * We either select a module (here), or load one (see: load)
 		 */
 		select: function(event) {
-			var $target = $(event.currentTarget), $componentElement;
-			this.selectedModule = this.page.modules[$target.data('idx')];
-			$componentElement = $(this.selectedModule.content);
+			var modules = this.page.modules;
+			var $target = $(event.currentTarget);
+			var selected = modules[$target.data('idx')];
+			var $component = $(this.createElement()).append(selected.content);
 
-			if ($componentElement.length > 1) {
-				$componentElement = $componentElement.wrap('<div></div>');
+			if ($component.children().length == 1) {
+				$component = $component.children();
 			}
 
-			$componentElement.attr(this.componentAttribute);
+			$component.attr(this.componentAttribute);
 			$target.addClass('selected');
 
 			this.module = {
 				id: null,
 				page: this.page.id,
-				title: this.selectedModule.title,
-				module: this.selectedModule.id,
+				title: selected.title,
+				module: selected.id,
 				container: this.focus.data('container'),
 				position: this.focus.find('[' + this.componentAttribute + ']').length + 1,
-				el: $componentElement
+				el: $component
 			}
 
 			this.show('settings');
